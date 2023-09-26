@@ -9,7 +9,7 @@ import (
 	_ "embed"
 
 	apiToken "github.com/ankasoftco/provider-vcd/config/api_token"
-
+	catalog "github.com/ankasoftco/provider-vcd/config/catalog"
 	ujconfig "github.com/upbound/upjet/pkg/config"
 )
 
@@ -37,6 +37,7 @@ func GetProvider() *ujconfig.Provider {
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
 		apiToken.Configure,
+		catalog.Configure,
 	} {
 		configure(pc)
 	}

@@ -10,7 +10,12 @@ import "github.com/upbound/upjet/pkg/config"
 // provider.
 var ExternalNameConfigs = map[string]config.ExternalName{
 	// Import requires using a randomly generated ID from provider: nl-2e21sda
-	"vcd_api_token": config.IdentifierFromProvider,
+	"vcd_api_token": 	config.IdentifierFromProvider,
+	"vcd_catalog": 		config.IdentifierFromProvider,
+	"vcd_catalog_acces_control": 		config.IdentifierFromProvider,
+	"vcd_catalog_item": 		config.IdentifierFromProvider,
+	"vcd_catalog_media": 		config.IdentifierFromProvider,
+	"vcd_catalog_vapp_template": 		config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the
