@@ -1,0 +1,579 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.11.3
+  creationTimestamp: null
+  name: orgldaps.vcd.crossplane.io
+spec:
+  group: vcd.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - vcd
+    kind: OrgLdap
+    listKind: OrgLdapList
+    plural: orgldaps
+    singular: orgldap
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: OrgLdap is the Schema for the OrgLdaps API. <no value>
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: OrgLdapSpec defines the desired state of OrgLdap
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: 'DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource. This field is planned to be deprecated
+                  in favor of the ManagementPolicy field in a future release. Currently,
+                  both could be set independently and non-default values would be
+                  honored if the feature flag is enabled. See the design doc for more
+                  information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  customSettings:
+                    description: Custom settings when `ldap_mode` is CUSTOM
+                    items:
+                      properties:
+                        authenticationMethod:
+                          description: 'authentication method: one of SIMPLE, MD5DIGEST,
+                            NTLM'
+                          type: string
+                        baseDistinguishedName:
+                          description: LDAP search base
+                          type: string
+                        connectorType:
+                          description: 'type of connector: one of OPEN_LDAP, ACTIVE_DIRECTORY'
+                          type: string
+                        groupAttributes:
+                          description: Group settings when `ldap_mode` is CUSTOM
+                          items:
+                            properties:
+                              groupBackLinkIdentifier:
+                                description: LDAP group attribute used to identify
+                                  a group member
+                                type: string
+                              groupMembershipIdentifier:
+                                description: LDAP attribute that identifies a group
+                                  as a member of another group. For example, dn
+                                type: string
+                              membership:
+                                description: LDAP attribute to use when getting the
+                                  members of a group. For example, member
+                                type: string
+                              name:
+                                description: LDAP attribute to use for the group name.
+                                  For example, cn
+                                type: string
+                              objectClass:
+                                description: LDAP objectClass of which imported groups
+                                  are members. For example, group
+                                type: string
+                              uniqueIdentifier:
+                                description: LDAP attribute to use as the unique identifier
+                                  for a group. For example, objectGuid
+                                type: string
+                            required:
+                            - groupMembershipIdentifier
+                            - membership
+                            - name
+                            - objectClass
+                            - uniqueIdentifier
+                            type: object
+                          type: array
+                        isSsl:
+                          description: True if the LDAP service requires an SSL connection
+                          type: boolean
+                        passwordSecretRef:
+                          description: Password for the user identified by UserName.
+                            This value is never returned by GET. It is inspected on
+                            create and modify. On modify, the absence of this element
+                            indicates that the password should not be changed
+                          properties:
+                            key:
+                              description: The key to select.
+                              type: string
+                            name:
+                              description: Name of the secret.
+                              type: string
+                            namespace:
+                              description: Namespace of the secret.
+                              type: string
+                          required:
+                          - key
+                          - name
+                          - namespace
+                          type: object
+                        port:
+                          description: Port number for LDAP service
+                          type: number
+                        server:
+                          description: host name or IP of the LDAP server
+                          type: string
+                        userAttributes:
+                          description: User settings when `ldap_mode` is CUSTOM
+                          items:
+                            properties:
+                              displayName:
+                                description: LDAP attribute to use for the user's
+                                  full name. For example, displayName
+                                type: string
+                              email:
+                                description: LDAP attribute to use for the user's
+                                  email address. For example, mail
+                                type: string
+                              givenName:
+                                description: LDAP attribute to use for the user's
+                                  given name. For example, givenName
+                                type: string
+                              groupBackLinkIdentifier:
+                                description: LDAP attribute that returns the identifiers
+                                  of all the groups of which the user is a member
+                                type: string
+                              groupMembershipIdentifier:
+                                description: LDAP attribute that identifies a user
+                                  as a member of a group. For example, dn
+                                type: string
+                              objectClass:
+                                description: LDAP objectClass of which imported users
+                                  are members. For example, user or person
+                                type: string
+                              surname:
+                                description: LDAP attribute to use for the user's
+                                  surname. For example, sn
+                                type: string
+                              telephone:
+                                description: LDAP attribute to use for the user's
+                                  telephone number. For example, telephoneNumber
+                                type: string
+                              uniqueIdentifier:
+                                description: LDAP attribute to use as the unique identifier
+                                  for a user. For example, objectGuid
+                                type: string
+                              username:
+                                description: LDAP attribute to use when looking up
+                                  a user name to import. For example, userPrincipalName
+                                  or samAccountName
+                                type: string
+                            required:
+                            - displayName
+                            - email
+                            - givenName
+                            - groupMembershipIdentifier
+                            - objectClass
+                            - surname
+                            - telephone
+                            - uniqueIdentifier
+                            - username
+                            type: object
+                          type: array
+                        username:
+                          description: 'Username to use when logging in to LDAP, specified
+                            using LDAP attribute=value pairs (for example: cn="ldap-admin",
+                            c="example", dc="com")'
+                          type: string
+                      required:
+                      - authenticationMethod
+                      - connectorType
+                      - groupAttributes
+                      - port
+                      - server
+                      - userAttributes
+                      type: object
+                    type: array
+                  ldapMode:
+                    description: Type of LDAP settings (one of NONE, SYSTEM, CUSTOM)
+                    type: string
+                  orgId:
+                    description: Organization ID
+                    type: string
+                type: object
+              managementPolicy:
+                default: FullControl
+                description: 'THIS IS AN ALPHA FIELD. Do not use it in production.
+                  It is not honored unless the relevant Crossplane feature flag is
+                  enabled, and may be changed or removed without notice. ManagementPolicy
+                  specifies the level of control Crossplane has over the managed external
+                  resource. This field is planned to replace the DeletionPolicy field
+                  in a future release. Currently, both could be set independently
+                  and non-default values would be honored if the feature flag is enabled.
+                  See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - FullControl
+                - ObserveOnly
+                - OrphanOnDelete
+                type: string
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              publishConnectionDetailsTo:
+                description: PublishConnectionDetailsTo specifies the connection secret
+                  config which contains a name, metadata and a reference to secret
+                  store config to which any connection details for this managed resource
+                  should be written. Connection details frequently include the endpoint,
+                  username, and password required to connect to the managed resource.
+                properties:
+                  configRef:
+                    default:
+                      name: default
+                    description: SecretStoreConfigRef specifies which secret store
+                      config should be used for this ConnectionSecret.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                      policy:
+                        description: Policies for referencing.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: Resolution specifies whether resolution of
+                              this reference is required. The default is 'Required',
+                              which means the reconcile will fail if the reference
+                              cannot be resolved. 'Optional' means this reference
+                              will be a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: Resolve specifies when this reference should
+                              be resolved. The default is 'IfNotPresent', which will
+                              attempt to resolve the reference only when the corresponding
+                              field is not present. Use 'Always' to resolve the reference
+                              on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  metadata:
+                    description: Metadata is the metadata for connection secret.
+                    properties:
+                      annotations:
+                        additionalProperties:
+                          type: string
+                        description: Annotations are the annotations to be added to
+                          connection secret. - For Kubernetes secrets, this will be
+                          used as "metadata.annotations". - It is up to Secret Store
+                          implementation for others store types.
+                        type: object
+                      labels:
+                        additionalProperties:
+                          type: string
+                        description: Labels are the labels/tags to be added to connection
+                          secret. - For Kubernetes secrets, this will be used as "metadata.labels".
+                          - It is up to Secret Store implementation for others store
+                          types.
+                        type: object
+                      type:
+                        description: Type is the SecretType for the connection secret.
+                          - Only valid for Kubernetes Secret Stores.
+                        type: string
+                    type: object
+                  name:
+                    description: Name is the name of the connection secret.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource. This field is planned to be replaced in a future
+                  release in favor of PublishConnectionDetailsTo. Currently, both
+                  could be set independently and connection details would be published
+                  to both without affecting each other.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+            x-kubernetes-validations:
+            - message: ldapMode is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.ldapMode)
+            - message: orgId is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.orgId)
+          status:
+            description: OrgLdapStatus defines the observed state of OrgLdap.
+            properties:
+              atProvider:
+                properties:
+                  customSettings:
+                    description: Custom settings when `ldap_mode` is CUSTOM
+                    items:
+                      properties:
+                        authenticationMethod:
+                          description: 'authentication method: one of SIMPLE, MD5DIGEST,
+                            NTLM'
+                          type: string
+                        baseDistinguishedName:
+                          description: LDAP search base
+                          type: string
+                        connectorType:
+                          description: 'type of connector: one of OPEN_LDAP, ACTIVE_DIRECTORY'
+                          type: string
+                        groupAttributes:
+                          description: Group settings when `ldap_mode` is CUSTOM
+                          items:
+                            properties:
+                              groupBackLinkIdentifier:
+                                description: LDAP group attribute used to identify
+                                  a group member
+                                type: string
+                              groupMembershipIdentifier:
+                                description: LDAP attribute that identifies a group
+                                  as a member of another group. For example, dn
+                                type: string
+                              membership:
+                                description: LDAP attribute to use when getting the
+                                  members of a group. For example, member
+                                type: string
+                              name:
+                                description: LDAP attribute to use for the group name.
+                                  For example, cn
+                                type: string
+                              objectClass:
+                                description: LDAP objectClass of which imported groups
+                                  are members. For example, group
+                                type: string
+                              uniqueIdentifier:
+                                description: LDAP attribute to use as the unique identifier
+                                  for a group. For example, objectGuid
+                                type: string
+                            type: object
+                          type: array
+                        isSsl:
+                          description: True if the LDAP service requires an SSL connection
+                          type: boolean
+                        port:
+                          description: Port number for LDAP service
+                          type: number
+                        server:
+                          description: host name or IP of the LDAP server
+                          type: string
+                        userAttributes:
+                          description: User settings when `ldap_mode` is CUSTOM
+                          items:
+                            properties:
+                              displayName:
+                                description: LDAP attribute to use for the user's
+                                  full name. For example, displayName
+                                type: string
+                              email:
+                                description: LDAP attribute to use for the user's
+                                  email address. For example, mail
+                                type: string
+                              givenName:
+                                description: LDAP attribute to use for the user's
+                                  given name. For example, givenName
+                                type: string
+                              groupBackLinkIdentifier:
+                                description: LDAP attribute that returns the identifiers
+                                  of all the groups of which the user is a member
+                                type: string
+                              groupMembershipIdentifier:
+                                description: LDAP attribute that identifies a user
+                                  as a member of a group. For example, dn
+                                type: string
+                              objectClass:
+                                description: LDAP objectClass of which imported users
+                                  are members. For example, user or person
+                                type: string
+                              surname:
+                                description: LDAP attribute to use for the user's
+                                  surname. For example, sn
+                                type: string
+                              telephone:
+                                description: LDAP attribute to use for the user's
+                                  telephone number. For example, telephoneNumber
+                                type: string
+                              uniqueIdentifier:
+                                description: LDAP attribute to use as the unique identifier
+                                  for a user. For example, objectGuid
+                                type: string
+                              username:
+                                description: LDAP attribute to use when looking up
+                                  a user name to import. For example, userPrincipalName
+                                  or samAccountName
+                                type: string
+                            type: object
+                          type: array
+                        username:
+                          description: 'Username to use when logging in to LDAP, specified
+                            using LDAP attribute=value pairs (for example: cn="ldap-admin",
+                            c="example", dc="com")'
+                          type: string
+                      type: object
+                    type: array
+                  id:
+                    type: string
+                  ldapMode:
+                    description: Type of LDAP settings (one of NONE, SYSTEM, CUSTOM)
+                    type: string
+                  orgId:
+                    description: Organization ID
+                    type: string
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

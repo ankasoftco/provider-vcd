@@ -71,6 +71,20 @@ import (
 	nsxvfirewallrule "github.com/ankasoftco/provider-vcd/internal/controller/vcd/nsxvfirewallrule"
 	nsxvipset "github.com/ankasoftco/provider-vcd/internal/controller/vcd/nsxvipset"
 	nsxvsnat "github.com/ankasoftco/provider-vcd/internal/controller/vcd/nsxvsnat"
+	org "github.com/ankasoftco/provider-vcd/internal/controller/vcd/org"
+	orggroup "github.com/ankasoftco/provider-vcd/internal/controller/vcd/orggroup"
+	orgldap "github.com/ankasoftco/provider-vcd/internal/controller/vcd/orgldap"
+	orgsaml "github.com/ankasoftco/provider-vcd/internal/controller/vcd/orgsaml"
+	orguser "github.com/ankasoftco/provider-vcd/internal/controller/vcd/orguser"
+	orgvdc "github.com/ankasoftco/provider-vcd/internal/controller/vcd/orgvdc"
+	orgvdcaccesscontrol "github.com/ankasoftco/provider-vcd/internal/controller/vcd/orgvdcaccesscontrol"
+	providervdc "github.com/ankasoftco/provider-vcd/internal/controller/vcd/providervdc"
+	rde "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rde"
+	rdeinterface "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rdeinterface"
+	rdeinterfacebehavior "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rdeinterfacebehavior"
+	rdetype "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rdetype"
+	rdetypebehavior "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rdetypebehavior"
+	rdetypebehavioracl "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rdetypebehavioracl"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -139,6 +153,20 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		nsxvfirewallrule.Setup,
 		nsxvipset.Setup,
 		nsxvsnat.Setup,
+		org.Setup,
+		orggroup.Setup,
+		orgldap.Setup,
+		orgsaml.Setup,
+		orguser.Setup,
+		orgvdc.Setup,
+		orgvdcaccesscontrol.Setup,
+		providervdc.Setup,
+		rde.Setup,
+		rdeinterface.Setup,
+		rdeinterfacebehavior.Setup,
+		rdetype.Setup,
+		rdetypebehavior.Setup,
+		rdetypebehavioracl.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err

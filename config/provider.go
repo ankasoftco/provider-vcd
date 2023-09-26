@@ -22,6 +22,9 @@ import (
 	network "github.com/ankasoftco/provider-vcd/config/network"
 	nsxt "github.com/ankasoftco/provider-vcd/config/nsxt"
 	nsxv "github.com/ankasoftco/provider-vcd/config/nsxv"
+	org "github.com/ankasoftco/provider-vcd/config/org"
+	providerVdc "github.com/ankasoftco/provider-vcd/config/provider_vdc"
+	rde "github.com/ankasoftco/provider-vcd/config/rde"
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
 )
@@ -63,6 +66,9 @@ func GetProvider() *ujconfig.Provider {
 		network.Configure,
 		nsxt.Configure,
 		nsxv.Configure,
+		org.Configure,
+		providerVdc.Configure,
+		rde.Configure,
 	} {
 		configure(pc)
 	}

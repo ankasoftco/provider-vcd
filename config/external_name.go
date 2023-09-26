@@ -71,8 +71,22 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"vcd_nsxv_distributed_firewall":					config.IdentifierFromProvider,
 	"vcd_nsxv_dnat":									config.IdentifierFromProvider,
 	"vcd_nsxv_firewall_rule":							config.IdentifierFromProvider,
-	"vcd_nsxv_ip_set":									config.IdentifierFromProvider,
 	"vcd_nsxv_snat":									config.IdentifierFromProvider,
+	"vcd_nsxv_ip_set":									config.IdentifierFromProvider,
+	"vcd_org":											config.IdentifierFromProvider,
+	"vcd_org_group":									config.IdentifierFromProvider,
+	"vcd_org_ldap":										config.IdentifierFromProvider,
+	"vcd_org_saml":										config.IdentifierFromProvider,
+	"vcd_org_user":										config.IdentifierFromProvider,
+	"vcd_org_vdc":										config.IdentifierFromProvider,
+	"vcd_org_vdc_access_control":						config.IdentifierFromProvider,
+	"vcd_provider_vdc":									config.IdentifierFromProvider,
+	"vcd_rde":											config.IdentifierFromProvider,
+	"vcd_rde_interface":								config.IdentifierFromProvider,
+	"vcd_rde_interface_behavior":						config.IdentifierFromProvider,
+	"vcd_rde_type":										config.IdentifierFromProvider,
+	"vcd_rde_type_behavior":							config.IdentifierFromProvider,
+	"vcd_rde_type_behavior_acl":						config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the

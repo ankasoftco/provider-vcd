@@ -1,0 +1,790 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.11.3
+  creationTimestamp: null
+  name: orgvdcs.vcd.crossplane.io
+spec:
+  group: vcd.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - vcd
+    kind: OrgVdc
+    listKind: OrgVdcList
+    plural: orgvdcs
+    singular: orgvdc
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: OrgVdc is the Schema for the OrgVdcs API. <no value>
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: OrgVdcSpec defines the desired state of OrgVdc
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: 'DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource. This field is planned to be deprecated
+                  in favor of the ManagementPolicy field in a future release. Currently,
+                  both could be set independently and non-default values would be
+                  honored if the feature flag is enabled. See the design doc for more
+                  information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  allocationModel:
+                    description: The allocation model used by this VDC; must be one
+                      of {AllocationVApp, AllocationPool, ReservationPool, Flex}
+                    type: string
+                  allowOverCommit:
+                    description: Set to false to disallow creation of the VDC if the
+                      AllocationModel is AllocationPool or ReservationPool and the
+                      ComputeCapacity you specified is greater than what the backing
+                      Provider VDC can supply. Default is true.
+                    type: boolean
+                  computeCapacity:
+                    description: The compute capacity allocated to this VDC.
+                    items:
+                      properties:
+                        cpu:
+                          items:
+                            properties:
+                              allocated:
+                                description: Capacity that is committed to be available.
+                                  Value in MB or MHz. Used with AllocationPool (Allocation
+                                  pool) and ReservationPool (Reservation pool).
+                                type: number
+                              limit:
+                                description: Capacity limit relative to the value
+                                  specified for Allocation. It must not be less than
+                                  that value. If it is greater than that value, it
+                                  implies over provisioning. A value of 0 specifies
+                                  unlimited units. Value in MB or MHz. Used with AllocationVApp
+                                  (Pay as you go).
+                                type: number
+                            type: object
+                          type: array
+                        memory:
+                          items:
+                            properties:
+                              allocated:
+                                description: Capacity that is committed to be available.
+                                  Value in MB or MHz. Used with AllocationPool (Allocation
+                                  pool) and ReservationPool (Reservation pool).
+                                type: number
+                              limit:
+                                description: Capacity limit relative to the value
+                                  specified for Allocation. It must not be less than
+                                  that value. If it is greater than that value, it
+                                  implies over provisioning. A value of 0 specifies
+                                  unlimited units. Value in MB or MHz. Used with AllocationVApp
+                                  (Pay as you go).
+                                type: number
+                            type: object
+                          type: array
+                      required:
+                      - cpu
+                      - memory
+                      type: object
+                    type: array
+                  cpuGuaranteed:
+                    description: Percentage of allocated CPU resources guaranteed
+                      to vApps deployed in this VDC. For example, if this value is
+                      0.75, then 75% of allocated resources are guaranteed. Required
+                      when AllocationModel is AllocationVApp or AllocationPool. If
+                      the element is empty, vCD sets a value
+                    type: number
+                  cpuSpeed:
+                    description: Specifies the clock frequency, in Megahertz, for
+                      any virtual CPU that is allocated to a VM. A VM with 2 vCPUs
+                      will consume twice as much of this value. Ignored for ReservationPool.
+                      Required when AllocationModel is AllocationVApp or AllocationPool,
+                      and may not be less than 256 MHz. Defaults to 1000 MHz if the
+                      element is empty or missing.
+                    type: number
+                  defaultComputePolicyId:
+                    description: ID of default Compute policy for this VDC, which
+                      can be a VM Sizing Policy, VM Placement Policy or vGPU Policy
+                    type: string
+                  defaultVmSizingPolicyId:
+                    description: ID of default VM Compute policy, which can be a VM
+                      Sizing Policy, VM Placement Policy or vGPU Policy
+                    type: string
+                  deleteForce:
+                    description: When destroying use delete_force=True to remove a
+                      VDC and any objects it contains, regardless of their state.
+                    type: boolean
+                  deleteRecursive:
+                    description: When destroying use delete_recursive=True to remove
+                      the VDC and any objects it contains that are in a state that
+                      normally allows removal.
+                    type: boolean
+                  description:
+                    type: string
+                  edgeClusterId:
+                    description: ID of NSX-T Edge Cluster (provider vApp networking
+                      services and DHCP capability for Isolated networks)
+                    type: string
+                  elasticity:
+                    description: Set to true to indicate if the Flex VDC is to be
+                      elastic.
+                    type: boolean
+                  enableFastProvisioning:
+                    description: Request for fast provisioning. Request will be honored
+                      only if the underlying datas tore supports it. Fast provisioning
+                      can reduce the time it takes to create virtual machines by using
+                      vSphere linked clones. If you disable fast provisioning, all
+                      provisioning operations will result in full clones.
+                    type: boolean
+                  enableNsxvDistributedFirewall:
+                    description: Set to true to enable distributed firewall - Only
+                      applies to NSX-V VDCs
+                    type: boolean
+                  enableThinProvisioning:
+                    description: Boolean to request thin provisioning. Request will
+                      be honored only if the underlying datastore supports it. Thin
+                      provisioning saves storage space by committing it on demand.
+                      This allows over-allocation of storage.
+                    type: boolean
+                  enableVmDiscovery:
+                    description: True if discovery of vCenter VMs is enabled for resource
+                      pools backing this VDC. If left unspecified, the actual behaviour
+                      depends on enablement at the organization level and at the system
+                      level.
+                    type: boolean
+                  enabled:
+                    description: True if this VDC is enabled for use by the organization
+                      VDCs. Default is true.
+                    type: boolean
+                  includeVmMemoryOverhead:
+                    description: Set to true to indicate if the Flex VDC is to include
+                      memory overhead into its accounting for admission control.
+                    type: boolean
+                  memoryGuaranteed:
+                    description: Percentage of allocated memory resources guaranteed
+                      to vApps deployed in this VDC. For example, if this value is
+                      0.75, then 75% of allocated resources are guaranteed. Required
+                      when AllocationModel is AllocationVApp or AllocationPool. When
+                      Allocation model is AllocationPool minimum value is 0.2. If
+                      the element is empty, vCD sets a value.
+                    type: number
+                  metadata:
+                    additionalProperties:
+                      type: string
+                    description: Key and value pairs for Org VDC metadata
+                    type: object
+                  metadataEntry:
+                    description: Metadata entries for the given VDC
+                    items:
+                      properties:
+                        isSystem:
+                          description: Domain for this metadata entry. true if it
+                            belongs to SYSTEM, false if it belongs to GENERAL
+                          type: boolean
+                        key:
+                          description: Key of this metadata entry. Required if the
+                            metadata entry is not empty
+                          type: string
+                        type:
+                          description: 'Type of this metadata entry. One of: ''MetadataStringValue'',
+                            ''MetadataNumberValue'', ''MetadataBooleanValue'', ''MetadataDateTimeValue'''
+                          type: string
+                        userAccess:
+                          description: 'User access level for this metadata entry.
+                            One of: ''READWRITE'', ''READONLY'', ''PRIVATE'''
+                          type: string
+                        value:
+                          description: Value of this metadata entry. Required if the
+                            metadata entry is not empty
+                          type: string
+                      type: object
+                    type: array
+                  name:
+                    type: string
+                  networkPoolName:
+                    description: The name of a network pool in the Provider VDC. Required
+                      if this VDC will contain routed or isolated networks.
+                    type: string
+                  networkQuota:
+                    description: Maximum number of network objects that can be deployed
+                      in this VDC. Defaults to 0, which means no networks can be deployed.
+                    type: number
+                  nicQuota:
+                    description: Maximum number of virtual NICs allowed in this VDC.
+                      Defaults to 0, which specifies an unlimited number.
+                    type: number
+                  org:
+                    description: The name of organization to use, optional if defined
+                      at provider level. Useful when connected as sysadmin working
+                      across different organizations
+                    type: string
+                  providerVdcName:
+                    description: A reference to the Provider VDC from which this organization
+                      VDC is provisioned.
+                    type: string
+                  storageProfile:
+                    description: Storage profiles supported by this VDC.
+                    items:
+                      properties:
+                        default:
+                          description: True if this is default storage profile for
+                            this VDC. The default storage profile is used when an
+                            object that can specify a storage profile is created with
+                            no storage profile specified.
+                          type: boolean
+                        enabled:
+                          description: True if this storage profile is enabled for
+                            use in the VDC.
+                          type: boolean
+                        limit:
+                          description: Maximum number of MB allocated for this storage
+                            profile. A value of 0 specifies unlimited MB.
+                          type: number
+                        name:
+                          description: Name of Provider VDC storage profile.
+                          type: string
+                      required:
+                      - default
+                      - limit
+                      - name
+                      type: object
+                    type: array
+                  vmPlacementPolicyIds:
+                    description: Set of VM Placement Policy IDs
+                    items:
+                      type: string
+                    type: array
+                  vmQuota:
+                    description: The maximum number of VMs that can be created in
+                      this VDC. Includes deployed and undeployed VMs in vApps and
+                      vApp templates. Defaults to 0, which specifies an unlimited
+                      number.
+                    type: number
+                  vmSizingPolicyIds:
+                    description: Set of VM Sizing Policy IDs
+                    items:
+                      type: string
+                    type: array
+                type: object
+              managementPolicy:
+                default: FullControl
+                description: 'THIS IS AN ALPHA FIELD. Do not use it in production.
+                  It is not honored unless the relevant Crossplane feature flag is
+                  enabled, and may be changed or removed without notice. ManagementPolicy
+                  specifies the level of control Crossplane has over the managed external
+                  resource. This field is planned to replace the DeletionPolicy field
+                  in a future release. Currently, both could be set independently
+                  and non-default values would be honored if the feature flag is enabled.
+                  See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - FullControl
+                - ObserveOnly
+                - OrphanOnDelete
+                type: string
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              publishConnectionDetailsTo:
+                description: PublishConnectionDetailsTo specifies the connection secret
+                  config which contains a name, metadata and a reference to secret
+                  store config to which any connection details for this managed resource
+                  should be written. Connection details frequently include the endpoint,
+                  username, and password required to connect to the managed resource.
+                properties:
+                  configRef:
+                    default:
+                      name: default
+                    description: SecretStoreConfigRef specifies which secret store
+                      config should be used for this ConnectionSecret.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                      policy:
+                        description: Policies for referencing.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: Resolution specifies whether resolution of
+                              this reference is required. The default is 'Required',
+                              which means the reconcile will fail if the reference
+                              cannot be resolved. 'Optional' means this reference
+                              will be a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: Resolve specifies when this reference should
+                              be resolved. The default is 'IfNotPresent', which will
+                              attempt to resolve the reference only when the corresponding
+                              field is not present. Use 'Always' to resolve the reference
+                              on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  metadata:
+                    description: Metadata is the metadata for connection secret.
+                    properties:
+                      annotations:
+                        additionalProperties:
+                          type: string
+                        description: Annotations are the annotations to be added to
+                          connection secret. - For Kubernetes secrets, this will be
+                          used as "metadata.annotations". - It is up to Secret Store
+                          implementation for others store types.
+                        type: object
+                      labels:
+                        additionalProperties:
+                          type: string
+                        description: Labels are the labels/tags to be added to connection
+                          secret. - For Kubernetes secrets, this will be used as "metadata.labels".
+                          - It is up to Secret Store implementation for others store
+                          types.
+                        type: object
+                      type:
+                        description: Type is the SecretType for the connection secret.
+                          - Only valid for Kubernetes Secret Stores.
+                        type: string
+                    type: object
+                  name:
+                    description: Name is the name of the connection secret.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource. This field is planned to be replaced in a future
+                  release in favor of PublishConnectionDetailsTo. Currently, both
+                  could be set independently and connection details would be published
+                  to both without affecting each other.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+            x-kubernetes-validations:
+            - message: allocationModel is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.allocationModel)
+            - message: computeCapacity is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.computeCapacity)
+            - message: deleteForce is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.deleteForce)
+            - message: deleteRecursive is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.deleteRecursive)
+            - message: name is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.name)
+            - message: providerVdcName is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.providerVdcName)
+            - message: storageProfile is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.storageProfile)
+          status:
+            description: OrgVdcStatus defines the observed state of OrgVdc.
+            properties:
+              atProvider:
+                properties:
+                  allocationModel:
+                    description: The allocation model used by this VDC; must be one
+                      of {AllocationVApp, AllocationPool, ReservationPool, Flex}
+                    type: string
+                  allowOverCommit:
+                    description: Set to false to disallow creation of the VDC if the
+                      AllocationModel is AllocationPool or ReservationPool and the
+                      ComputeCapacity you specified is greater than what the backing
+                      Provider VDC can supply. Default is true.
+                    type: boolean
+                  computeCapacity:
+                    description: The compute capacity allocated to this VDC.
+                    items:
+                      properties:
+                        cpu:
+                          items:
+                            properties:
+                              allocated:
+                                description: Capacity that is committed to be available.
+                                  Value in MB or MHz. Used with AllocationPool (Allocation
+                                  pool) and ReservationPool (Reservation pool).
+                                type: number
+                              limit:
+                                description: Capacity limit relative to the value
+                                  specified for Allocation. It must not be less than
+                                  that value. If it is greater than that value, it
+                                  implies over provisioning. A value of 0 specifies
+                                  unlimited units. Value in MB or MHz. Used with AllocationVApp
+                                  (Pay as you go).
+                                type: number
+                              reserved:
+                                type: number
+                              used:
+                                type: number
+                            type: object
+                          type: array
+                        memory:
+                          items:
+                            properties:
+                              allocated:
+                                description: Capacity that is committed to be available.
+                                  Value in MB or MHz. Used with AllocationPool (Allocation
+                                  pool) and ReservationPool (Reservation pool).
+                                type: number
+                              limit:
+                                description: Capacity limit relative to the value
+                                  specified for Allocation. It must not be less than
+                                  that value. If it is greater than that value, it
+                                  implies over provisioning. A value of 0 specifies
+                                  unlimited units. Value in MB or MHz. Used with AllocationVApp
+                                  (Pay as you go).
+                                type: number
+                              reserved:
+                                type: number
+                              used:
+                                type: number
+                            type: object
+                          type: array
+                      type: object
+                    type: array
+                  cpuGuaranteed:
+                    description: Percentage of allocated CPU resources guaranteed
+                      to vApps deployed in this VDC. For example, if this value is
+                      0.75, then 75% of allocated resources are guaranteed. Required
+                      when AllocationModel is AllocationVApp or AllocationPool. If
+                      the element is empty, vCD sets a value
+                    type: number
+                  cpuSpeed:
+                    description: Specifies the clock frequency, in Megahertz, for
+                      any virtual CPU that is allocated to a VM. A VM with 2 vCPUs
+                      will consume twice as much of this value. Ignored for ReservationPool.
+                      Required when AllocationModel is AllocationVApp or AllocationPool,
+                      and may not be less than 256 MHz. Defaults to 1000 MHz if the
+                      element is empty or missing.
+                    type: number
+                  defaultComputePolicyId:
+                    description: ID of default Compute policy for this VDC, which
+                      can be a VM Sizing Policy, VM Placement Policy or vGPU Policy
+                    type: string
+                  defaultVmSizingPolicyId:
+                    description: ID of default VM Compute policy, which can be a VM
+                      Sizing Policy, VM Placement Policy or vGPU Policy
+                    type: string
+                  deleteForce:
+                    description: When destroying use delete_force=True to remove a
+                      VDC and any objects it contains, regardless of their state.
+                    type: boolean
+                  deleteRecursive:
+                    description: When destroying use delete_recursive=True to remove
+                      the VDC and any objects it contains that are in a state that
+                      normally allows removal.
+                    type: boolean
+                  description:
+                    type: string
+                  edgeClusterId:
+                    description: ID of NSX-T Edge Cluster (provider vApp networking
+                      services and DHCP capability for Isolated networks)
+                    type: string
+                  elasticity:
+                    description: Set to true to indicate if the Flex VDC is to be
+                      elastic.
+                    type: boolean
+                  enableFastProvisioning:
+                    description: Request for fast provisioning. Request will be honored
+                      only if the underlying datas tore supports it. Fast provisioning
+                      can reduce the time it takes to create virtual machines by using
+                      vSphere linked clones. If you disable fast provisioning, all
+                      provisioning operations will result in full clones.
+                    type: boolean
+                  enableNsxvDistributedFirewall:
+                    description: Set to true to enable distributed firewall - Only
+                      applies to NSX-V VDCs
+                    type: boolean
+                  enableThinProvisioning:
+                    description: Boolean to request thin provisioning. Request will
+                      be honored only if the underlying datastore supports it. Thin
+                      provisioning saves storage space by committing it on demand.
+                      This allows over-allocation of storage.
+                    type: boolean
+                  enableVmDiscovery:
+                    description: True if discovery of vCenter VMs is enabled for resource
+                      pools backing this VDC. If left unspecified, the actual behaviour
+                      depends on enablement at the organization level and at the system
+                      level.
+                    type: boolean
+                  enabled:
+                    description: True if this VDC is enabled for use by the organization
+                      VDCs. Default is true.
+                    type: boolean
+                  id:
+                    type: string
+                  includeVmMemoryOverhead:
+                    description: Set to true to indicate if the Flex VDC is to include
+                      memory overhead into its accounting for admission control.
+                    type: boolean
+                  memoryGuaranteed:
+                    description: Percentage of allocated memory resources guaranteed
+                      to vApps deployed in this VDC. For example, if this value is
+                      0.75, then 75% of allocated resources are guaranteed. Required
+                      when AllocationModel is AllocationVApp or AllocationPool. When
+                      Allocation model is AllocationPool minimum value is 0.2. If
+                      the element is empty, vCD sets a value.
+                    type: number
+                  metadata:
+                    additionalProperties:
+                      type: string
+                    description: Key and value pairs for Org VDC metadata
+                    type: object
+                  metadataEntry:
+                    description: Metadata entries for the given VDC
+                    items:
+                      properties:
+                        isSystem:
+                          description: Domain for this metadata entry. true if it
+                            belongs to SYSTEM, false if it belongs to GENERAL
+                          type: boolean
+                        key:
+                          description: Key of this metadata entry. Required if the
+                            metadata entry is not empty
+                          type: string
+                        type:
+                          description: 'Type of this metadata entry. One of: ''MetadataStringValue'',
+                            ''MetadataNumberValue'', ''MetadataBooleanValue'', ''MetadataDateTimeValue'''
+                          type: string
+                        userAccess:
+                          description: 'User access level for this metadata entry.
+                            One of: ''READWRITE'', ''READONLY'', ''PRIVATE'''
+                          type: string
+                        value:
+                          description: Value of this metadata entry. Required if the
+                            metadata entry is not empty
+                          type: string
+                      type: object
+                    type: array
+                  name:
+                    type: string
+                  networkPoolName:
+                    description: The name of a network pool in the Provider VDC. Required
+                      if this VDC will contain routed or isolated networks.
+                    type: string
+                  networkQuota:
+                    description: Maximum number of network objects that can be deployed
+                      in this VDC. Defaults to 0, which means no networks can be deployed.
+                    type: number
+                  nicQuota:
+                    description: Maximum number of virtual NICs allowed in this VDC.
+                      Defaults to 0, which specifies an unlimited number.
+                    type: number
+                  org:
+                    description: The name of organization to use, optional if defined
+                      at provider level. Useful when connected as sysadmin working
+                      across different organizations
+                    type: string
+                  providerVdcName:
+                    description: A reference to the Provider VDC from which this organization
+                      VDC is provisioned.
+                    type: string
+                  storageProfile:
+                    description: Storage profiles supported by this VDC.
+                    items:
+                      properties:
+                        default:
+                          description: True if this is default storage profile for
+                            this VDC. The default storage profile is used when an
+                            object that can specify a storage profile is created with
+                            no storage profile specified.
+                          type: boolean
+                        enabled:
+                          description: True if this storage profile is enabled for
+                            use in the VDC.
+                          type: boolean
+                        limit:
+                          description: Maximum number of MB allocated for this storage
+                            profile. A value of 0 specifies unlimited MB.
+                          type: number
+                        name:
+                          description: Name of Provider VDC storage profile.
+                          type: string
+                        storageUsedInMb:
+                          description: Storage used in MB
+                          type: number
+                      type: object
+                    type: array
+                  vmPlacementPolicyIds:
+                    description: Set of VM Placement Policy IDs
+                    items:
+                      type: string
+                    type: array
+                  vmQuota:
+                    description: The maximum number of VMs that can be created in
+                      this VDC. Includes deployed and undeployed VMs in vApps and
+                      vApp templates. Defaults to 0, which specifies an unlimited
+                      number.
+                    type: number
+                  vmSizingPolicyIds:
+                    description: Set of VM Sizing Policy IDs
+                    items:
+                      type: string
+                    type: array
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

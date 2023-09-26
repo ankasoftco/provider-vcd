@@ -1,0 +1,560 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.11.3
+  creationTimestamp: null
+  name: orgs.vcd.crossplane.io
+spec:
+  group: vcd.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - vcd
+    kind: Org
+    listKind: OrgList
+    plural: orgs
+    singular: org
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: Org is the Schema for the Orgs API. <no value>
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: OrgSpec defines the desired state of Org
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: 'DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource. This field is planned to be deprecated
+                  in favor of the ManagementPolicy field in a future release. Currently,
+                  both could be set independently and non-default values would be
+                  honored if the feature flag is enabled. See the design doc for more
+                  information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  canPublishCatalogs:
+                    description: True if this organization is allowed to share catalogs.
+                    type: boolean
+                  canPublishExternalCatalogs:
+                    description: True if this organization is allowed to publish external
+                      catalogs.
+                    type: boolean
+                  canSubscribeExternalCatalogs:
+                    description: True if this organization is allowed to subscribe
+                      to external catalogs.
+                    type: boolean
+                  delayAfterPowerOnSeconds:
+                    description: Specifies this organization's default for virtual
+                      machine boot delay after power on.
+                    type: number
+                  deleteForce:
+                    description: When destroying use delete_force=True with delete_recursive=True
+                      to remove an org and any objects it contains, regardless of
+                      their state.
+                    type: boolean
+                  deleteRecursive:
+                    description: When destroying use delete_recursive=True to remove
+                      the org and any objects it contains that are in a state that
+                      normally allows removal.
+                    type: boolean
+                  deployedVmQuota:
+                    description: Maximum number of virtual machines that can be deployed
+                      simultaneously by a member of this organization. (0 = unlimited)
+                    type: number
+                  description:
+                    type: string
+                  fullName:
+                    type: string
+                  isEnabled:
+                    description: True if this organization is enabled (allows login
+                      and all other operations).
+                    type: boolean
+                  metadata:
+                    additionalProperties:
+                      type: string
+                    description: Key value map of metadata to assign to this organization.
+                      Key and value can be any string.
+                    type: object
+                  metadataEntry:
+                    description: Metadata entries for the given Organization
+                    items:
+                      properties:
+                        isSystem:
+                          description: Domain for this metadata entry. true if it
+                            belongs to SYSTEM, false if it belongs to GENERAL
+                          type: boolean
+                        key:
+                          description: Key of this metadata entry. Required if the
+                            metadata entry is not empty
+                          type: string
+                        type:
+                          description: 'Type of this metadata entry. One of: ''MetadataStringValue'',
+                            ''MetadataNumberValue'', ''MetadataBooleanValue'', ''MetadataDateTimeValue'''
+                          type: string
+                        userAccess:
+                          description: 'User access level for this metadata entry.
+                            One of: ''READWRITE'', ''READONLY'', ''PRIVATE'''
+                          type: string
+                        value:
+                          description: Value of this metadata entry. Required if the
+                            metadata entry is not empty
+                          type: string
+                      type: object
+                    type: array
+                  name:
+                    type: string
+                  storedVmQuota:
+                    description: Maximum number of virtual machines in vApps or vApp
+                      templates that can be stored in an undeployed state by a member
+                      of this organization. (0 = unlimited)
+                    type: number
+                  vappLease:
+                    description: Defines lease parameters for vApps created in this
+                      organization
+                    items:
+                      properties:
+                        deleteOnStorageLeaseExpiration:
+                          description: If true, storage for a vApp is deleted when
+                            the vApp's lease expires. If false, the storage is flagged
+                            for deletion, but not deleted.
+                          type: boolean
+                        maximumRuntimeLeaseInSec:
+                          description: How long vApps can run before they are automatically
+                            stopped (in seconds). 0 means never expires
+                          type: number
+                        maximumStorageLeaseInSec:
+                          description: How long stopped vApps are available before
+                            being automatically cleaned up (in seconds). 0 means never
+                            expires
+                          type: number
+                        powerOffOnRuntimeLeaseExpiration:
+                          description: When true, vApps are powered off when the runtime
+                            lease expires. When false, vApps are suspended when the
+                            runtime lease expires
+                          type: boolean
+                      required:
+                      - deleteOnStorageLeaseExpiration
+                      - maximumRuntimeLeaseInSec
+                      - maximumStorageLeaseInSec
+                      - powerOffOnRuntimeLeaseExpiration
+                      type: object
+                    type: array
+                  vappTemplateLease:
+                    description: Defines lease parameters for vApp templates created
+                      in this organization
+                    items:
+                      properties:
+                        deleteOnStorageLeaseExpiration:
+                          description: If true, storage for a vAppTemplate is deleted
+                            when the vAppTemplate lease expires. If false, the storage
+                            is flagged for deletion, but not deleted
+                          type: boolean
+                        maximumStorageLeaseInSec:
+                          description: How long vApp templates are available before
+                            being automatically cleaned up (in seconds). 0 means never
+                            expires
+                          type: number
+                      required:
+                      - deleteOnStorageLeaseExpiration
+                      - maximumStorageLeaseInSec
+                      type: object
+                    type: array
+                type: object
+              managementPolicy:
+                default: FullControl
+                description: 'THIS IS AN ALPHA FIELD. Do not use it in production.
+                  It is not honored unless the relevant Crossplane feature flag is
+                  enabled, and may be changed or removed without notice. ManagementPolicy
+                  specifies the level of control Crossplane has over the managed external
+                  resource. This field is planned to replace the DeletionPolicy field
+                  in a future release. Currently, both could be set independently
+                  and non-default values would be honored if the feature flag is enabled.
+                  See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - FullControl
+                - ObserveOnly
+                - OrphanOnDelete
+                type: string
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              publishConnectionDetailsTo:
+                description: PublishConnectionDetailsTo specifies the connection secret
+                  config which contains a name, metadata and a reference to secret
+                  store config to which any connection details for this managed resource
+                  should be written. Connection details frequently include the endpoint,
+                  username, and password required to connect to the managed resource.
+                properties:
+                  configRef:
+                    default:
+                      name: default
+                    description: SecretStoreConfigRef specifies which secret store
+                      config should be used for this ConnectionSecret.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                      policy:
+                        description: Policies for referencing.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: Resolution specifies whether resolution of
+                              this reference is required. The default is 'Required',
+                              which means the reconcile will fail if the reference
+                              cannot be resolved. 'Optional' means this reference
+                              will be a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: Resolve specifies when this reference should
+                              be resolved. The default is 'IfNotPresent', which will
+                              attempt to resolve the reference only when the corresponding
+                              field is not present. Use 'Always' to resolve the reference
+                              on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  metadata:
+                    description: Metadata is the metadata for connection secret.
+                    properties:
+                      annotations:
+                        additionalProperties:
+                          type: string
+                        description: Annotations are the annotations to be added to
+                          connection secret. - For Kubernetes secrets, this will be
+                          used as "metadata.annotations". - It is up to Secret Store
+                          implementation for others store types.
+                        type: object
+                      labels:
+                        additionalProperties:
+                          type: string
+                        description: Labels are the labels/tags to be added to connection
+                          secret. - For Kubernetes secrets, this will be used as "metadata.labels".
+                          - It is up to Secret Store implementation for others store
+                          types.
+                        type: object
+                      type:
+                        description: Type is the SecretType for the connection secret.
+                          - Only valid for Kubernetes Secret Stores.
+                        type: string
+                    type: object
+                  name:
+                    description: Name is the name of the connection secret.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource. This field is planned to be replaced in a future
+                  release in favor of PublishConnectionDetailsTo. Currently, both
+                  could be set independently and connection details would be published
+                  to both without affecting each other.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+            x-kubernetes-validations:
+            - message: deleteForce is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.deleteForce)
+            - message: deleteRecursive is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.deleteRecursive)
+            - message: fullName is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.fullName)
+            - message: name is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.name)
+          status:
+            description: OrgStatus defines the observed state of Org.
+            properties:
+              atProvider:
+                properties:
+                  canPublishCatalogs:
+                    description: True if this organization is allowed to share catalogs.
+                    type: boolean
+                  canPublishExternalCatalogs:
+                    description: True if this organization is allowed to publish external
+                      catalogs.
+                    type: boolean
+                  canSubscribeExternalCatalogs:
+                    description: True if this organization is allowed to subscribe
+                      to external catalogs.
+                    type: boolean
+                  delayAfterPowerOnSeconds:
+                    description: Specifies this organization's default for virtual
+                      machine boot delay after power on.
+                    type: number
+                  deleteForce:
+                    description: When destroying use delete_force=True with delete_recursive=True
+                      to remove an org and any objects it contains, regardless of
+                      their state.
+                    type: boolean
+                  deleteRecursive:
+                    description: When destroying use delete_recursive=True to remove
+                      the org and any objects it contains that are in a state that
+                      normally allows removal.
+                    type: boolean
+                  deployedVmQuota:
+                    description: Maximum number of virtual machines that can be deployed
+                      simultaneously by a member of this organization. (0 = unlimited)
+                    type: number
+                  description:
+                    type: string
+                  fullName:
+                    type: string
+                  id:
+                    type: string
+                  isEnabled:
+                    description: True if this organization is enabled (allows login
+                      and all other operations).
+                    type: boolean
+                  metadata:
+                    additionalProperties:
+                      type: string
+                    description: Key value map of metadata to assign to this organization.
+                      Key and value can be any string.
+                    type: object
+                  metadataEntry:
+                    description: Metadata entries for the given Organization
+                    items:
+                      properties:
+                        isSystem:
+                          description: Domain for this metadata entry. true if it
+                            belongs to SYSTEM, false if it belongs to GENERAL
+                          type: boolean
+                        key:
+                          description: Key of this metadata entry. Required if the
+                            metadata entry is not empty
+                          type: string
+                        type:
+                          description: 'Type of this metadata entry. One of: ''MetadataStringValue'',
+                            ''MetadataNumberValue'', ''MetadataBooleanValue'', ''MetadataDateTimeValue'''
+                          type: string
+                        userAccess:
+                          description: 'User access level for this metadata entry.
+                            One of: ''READWRITE'', ''READONLY'', ''PRIVATE'''
+                          type: string
+                        value:
+                          description: Value of this metadata entry. Required if the
+                            metadata entry is not empty
+                          type: string
+                      type: object
+                    type: array
+                  name:
+                    type: string
+                  storedVmQuota:
+                    description: Maximum number of virtual machines in vApps or vApp
+                      templates that can be stored in an undeployed state by a member
+                      of this organization. (0 = unlimited)
+                    type: number
+                  vappLease:
+                    description: Defines lease parameters for vApps created in this
+                      organization
+                    items:
+                      properties:
+                        deleteOnStorageLeaseExpiration:
+                          description: If true, storage for a vApp is deleted when
+                            the vApp's lease expires. If false, the storage is flagged
+                            for deletion, but not deleted.
+                          type: boolean
+                        maximumRuntimeLeaseInSec:
+                          description: How long vApps can run before they are automatically
+                            stopped (in seconds). 0 means never expires
+                          type: number
+                        maximumStorageLeaseInSec:
+                          description: How long stopped vApps are available before
+                            being automatically cleaned up (in seconds). 0 means never
+                            expires
+                          type: number
+                        powerOffOnRuntimeLeaseExpiration:
+                          description: When true, vApps are powered off when the runtime
+                            lease expires. When false, vApps are suspended when the
+                            runtime lease expires
+                          type: boolean
+                      type: object
+                    type: array
+                  vappTemplateLease:
+                    description: Defines lease parameters for vApp templates created
+                      in this organization
+                    items:
+                      properties:
+                        deleteOnStorageLeaseExpiration:
+                          description: If true, storage for a vAppTemplate is deleted
+                            when the vAppTemplate lease expires. If false, the storage
+                            is flagged for deletion, but not deleted
+                          type: boolean
+                        maximumStorageLeaseInSec:
+                          description: How long vApp templates are available before
+                            being automatically cleaned up (in seconds). 0 means never
+                            expires
+                          type: number
+                      type: object
+                    type: array
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
