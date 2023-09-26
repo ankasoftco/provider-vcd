@@ -8,6 +8,8 @@ import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
 
+	apiToken "github.com/ankasoftco/provider-vcd/config/api_token"
+
 	ujconfig "github.com/upbound/upjet/pkg/config"
 )
 
@@ -34,7 +36,7 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		
+		apiToken.Configure,
 	} {
 		configure(pc)
 	}

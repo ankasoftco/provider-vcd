@@ -10,6 +10,7 @@ import (
 	"github.com/upbound/upjet/pkg/controller"
 
 	providerconfig "github.com/ankasoftco/provider-vcd/internal/controller/providerconfig"
+	apitoken "github.com/ankasoftco/provider-vcd/internal/controller/vcd/apitoken"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -17,6 +18,7 @@ import (
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		providerconfig.Setup,
+		apitoken.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err
