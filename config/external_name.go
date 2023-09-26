@@ -87,6 +87,12 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"vcd_rde_type":										config.IdentifierFromProvider,
 	"vcd_rde_type_behavior":							config.IdentifierFromProvider,
 	"vcd_rde_type_behavior_acl":						config.IdentifierFromProvider,
+	"vcd_rights_bundle":								config.IdentifierFromProvider,
+	"vcd_role":											config.IdentifierFromProvider,
+	"vcd_security_tag":									config.IdentifierFromProvider,
+	"vcd_service_account":								config.IdentifierFromProvider,
+	"vcd_subscribed_catalog":							config.IdentifierFromProvider,
+	"vcd_ui_plugin":									config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the

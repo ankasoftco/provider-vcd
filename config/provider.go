@@ -25,6 +25,12 @@ import (
 	org "github.com/ankasoftco/provider-vcd/config/org"
 	providerVdc "github.com/ankasoftco/provider-vcd/config/provider_vdc"
 	rde "github.com/ankasoftco/provider-vcd/config/rde"
+	rightsBundle "github.com/ankasoftco/provider-vcd/config/rights_bundle"
+	role "github.com/ankasoftco/provider-vcd/config/role"
+	securityTag "github.com/ankasoftco/provider-vcd/config/security_tag"
+	serviceAccount "github.com/ankasoftco/provider-vcd/config/service_account"
+	subscribedCatalog "github.com/ankasoftco/provider-vcd/config/subscribed_catalog"
+	uiPlugin "github.com/ankasoftco/provider-vcd/config/ui_plugin"
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
 )
@@ -69,6 +75,12 @@ func GetProvider() *ujconfig.Provider {
 		org.Configure,
 		providerVdc.Configure,
 		rde.Configure,
+		rightsBundle.Configure,
+		role.Configure,
+		securityTag.Configure,
+		serviceAccount.Configure,
+		subscribedCatalog.Configure,
+		uiPlugin.Configure,
 	} {
 		configure(pc)
 	}

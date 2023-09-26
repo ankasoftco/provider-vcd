@@ -85,6 +85,12 @@ import (
 	rdetype "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rdetype"
 	rdetypebehavior "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rdetypebehavior"
 	rdetypebehavioracl "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rdetypebehavioracl"
+	rightsbundle "github.com/ankasoftco/provider-vcd/internal/controller/vcd/rightsbundle"
+	role "github.com/ankasoftco/provider-vcd/internal/controller/vcd/role"
+	securitytag "github.com/ankasoftco/provider-vcd/internal/controller/vcd/securitytag"
+	serviceaccount "github.com/ankasoftco/provider-vcd/internal/controller/vcd/serviceaccount"
+	subscribedcatalog "github.com/ankasoftco/provider-vcd/internal/controller/vcd/subscribedcatalog"
+	uiplugin "github.com/ankasoftco/provider-vcd/internal/controller/vcd/uiplugin"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -167,6 +173,12 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		rdetype.Setup,
 		rdetypebehavior.Setup,
 		rdetypebehavioracl.Setup,
+		rightsbundle.Setup,
+		role.Setup,
+		securitytag.Setup,
+		serviceaccount.Setup,
+		subscribedcatalog.Setup,
+		uiplugin.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err
