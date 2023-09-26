@@ -23,6 +23,18 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"vcd_edgegateway_vpn": 				config.IdentifierFromProvider,
 	"vcd_external_network": 			config.IdentifierFromProvider,
 	"vcd_external_network_v2": 			config.IdentifierFromProvider,
+	"vcd_global_role":		 			config.IdentifierFromProvider,
+	"vcd_independent_disk":		 		config.IdentifierFromProvider,
+	"vcd_inserted_media":		 		config.IdentifierFromProvider,
+	"vcd_ip_space":		 				config.IdentifierFromProvider,
+	"vcd_ip_space_custom_quota":		config.IdentifierFromProvider,
+	"vcd_ip_space_ip_allocation":		config.IdentifierFromProvider,
+	"vcd_ip_space_uplink":		 		config.IdentifierFromProvider,
+	"vcd_lb_app_profile":		 		config.IdentifierFromProvider,
+	"vcd_lb_app_rule":		 			config.IdentifierFromProvider,
+	"vcd_lb_server_pool":		 		config.IdentifierFromProvider,
+	"vcd_lb_service_monitor":		 	config.IdentifierFromProvider,
+	"vcd_lb_virtual_server":			config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the

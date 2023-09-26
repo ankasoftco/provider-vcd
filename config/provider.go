@@ -14,7 +14,12 @@ import (
 	clonedvApp "github.com/ankasoftco/provider-vcd/config/cloned_vapp"
 	edgegateway "github.com/ankasoftco/provider-vcd/config/edgegateway"
 	externalNetwork "github.com/ankasoftco/provider-vcd/config/external_network"
-
+	globalRole "github.com/ankasoftco/provider-vcd/config/global_role"
+	independentDisk "github.com/ankasoftco/provider-vcd/config/independent_disk"
+	insertedMedia "github.com/ankasoftco/provider-vcd/config/inserted_media"
+	ipSpace "github.com/ankasoftco/provider-vcd/config/ip_space"
+	lb "github.com/ankasoftco/provider-vcd/config/lb"
+	
 	ujconfig "github.com/upbound/upjet/pkg/config"
 )
 
@@ -47,6 +52,11 @@ func GetProvider() *ujconfig.Provider {
 		clonedvApp.Configure,
 		edgegateway.Configure,
 		externalNetwork.Configure,
+		globalRole.Configure,
+		independentDisk.Configure,
+		insertedMedia.Configure,
+		ipSpace.Configure,
+		lb.Configure,
 	} {
 		configure(pc)
 	}

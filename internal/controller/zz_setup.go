@@ -21,6 +21,18 @@ import (
 	edgegatewayvpn "github.com/ankasoftco/provider-vcd/internal/controller/vcd/edgegatewayvpn"
 	externalnetwork "github.com/ankasoftco/provider-vcd/internal/controller/vcd/externalnetwork"
 	externalnetworkv2 "github.com/ankasoftco/provider-vcd/internal/controller/vcd/externalnetworkv2"
+	globalrole "github.com/ankasoftco/provider-vcd/internal/controller/vcd/globalrole"
+	independentdisk "github.com/ankasoftco/provider-vcd/internal/controller/vcd/independentdisk"
+	insertedmedia "github.com/ankasoftco/provider-vcd/internal/controller/vcd/insertedmedia"
+	ipspace "github.com/ankasoftco/provider-vcd/internal/controller/vcd/ipspace"
+	ipspacecustomquota "github.com/ankasoftco/provider-vcd/internal/controller/vcd/ipspacecustomquota"
+	ipspaceipallocation "github.com/ankasoftco/provider-vcd/internal/controller/vcd/ipspaceipallocation"
+	ipspaceuplink "github.com/ankasoftco/provider-vcd/internal/controller/vcd/ipspaceuplink"
+	lbappprofile "github.com/ankasoftco/provider-vcd/internal/controller/vcd/lbappprofile"
+	lbapprule "github.com/ankasoftco/provider-vcd/internal/controller/vcd/lbapprule"
+	lbserverpool "github.com/ankasoftco/provider-vcd/internal/controller/vcd/lbserverpool"
+	lbservicemonitor "github.com/ankasoftco/provider-vcd/internal/controller/vcd/lbservicemonitor"
+	lbvirtualserver "github.com/ankasoftco/provider-vcd/internal/controller/vcd/lbvirtualserver"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -39,6 +51,18 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		edgegatewayvpn.Setup,
 		externalnetwork.Setup,
 		externalnetworkv2.Setup,
+		globalrole.Setup,
+		independentdisk.Setup,
+		insertedmedia.Setup,
+		ipspace.Setup,
+		ipspacecustomquota.Setup,
+		ipspaceipallocation.Setup,
+		ipspaceuplink.Setup,
+		lbappprofile.Setup,
+		lbapprule.Setup,
+		lbserverpool.Setup,
+		lbservicemonitor.Setup,
+		lbvirtualserver.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err
