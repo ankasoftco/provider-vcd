@@ -10,6 +10,11 @@ import (
 
 	apiToken "github.com/ankasoftco/provider-vcd/config/api_token"
 	catalog "github.com/ankasoftco/provider-vcd/config/catalog"
+	certificateLibrary "github.com/ankasoftco/provider-vcd/config/certificate_library"
+	clonedvApp "github.com/ankasoftco/provider-vcd/config/cloned_vapp"
+	edgegateway "github.com/ankasoftco/provider-vcd/config/edgegateway"
+	externalNetwork "github.com/ankasoftco/provider-vcd/config/external_network"
+
 	ujconfig "github.com/upbound/upjet/pkg/config"
 )
 
@@ -38,6 +43,10 @@ func GetProvider() *ujconfig.Provider {
 		// add custom config functions
 		apiToken.Configure,
 		catalog.Configure,
+		certificateLibrary.Configure,
+		clonedvApp.Configure,
+		edgegateway.Configure,
+		externalNetwork.Configure,
 	} {
 		configure(pc)
 	}

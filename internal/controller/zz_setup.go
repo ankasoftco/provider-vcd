@@ -15,6 +15,12 @@ import (
 	catalogitem "github.com/ankasoftco/provider-vcd/internal/controller/vcd/catalogitem"
 	catalogmedia "github.com/ankasoftco/provider-vcd/internal/controller/vcd/catalogmedia"
 	catalogvapptemplate "github.com/ankasoftco/provider-vcd/internal/controller/vcd/catalogvapptemplate"
+	clonedvapp "github.com/ankasoftco/provider-vcd/internal/controller/vcd/clonedvapp"
+	edgegateway "github.com/ankasoftco/provider-vcd/internal/controller/vcd/edgegateway"
+	edgegatewaysettings "github.com/ankasoftco/provider-vcd/internal/controller/vcd/edgegatewaysettings"
+	edgegatewayvpn "github.com/ankasoftco/provider-vcd/internal/controller/vcd/edgegatewayvpn"
+	externalnetwork "github.com/ankasoftco/provider-vcd/internal/controller/vcd/externalnetwork"
+	externalnetworkv2 "github.com/ankasoftco/provider-vcd/internal/controller/vcd/externalnetworkv2"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -27,6 +33,12 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		catalogitem.Setup,
 		catalogmedia.Setup,
 		catalogvapptemplate.Setup,
+		clonedvapp.Setup,
+		edgegateway.Setup,
+		edgegatewaysettings.Setup,
+		edgegatewayvpn.Setup,
+		externalnetwork.Setup,
+		externalnetworkv2.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err
