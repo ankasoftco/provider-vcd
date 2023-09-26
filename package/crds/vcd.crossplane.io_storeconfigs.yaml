@@ -5,14 +5,14 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.3
   creationTimestamp: null
-  name: storeconfigs.template.upbound.io
+  name: storeconfigs.vcd.crossplane.io
 spec:
-  group: template.upbound.io
+  group: vcd.crossplane.io
   names:
     categories:
     - crossplane
     - store
-    - template
+    - vcd
     kind: StoreConfig
     listKind: StoreConfigList
     plural: storeconfigs
@@ -32,8 +32,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: A StoreConfig configures how template controller should store
-          connection details.
+        description: A StoreConfig configures how vcd controller should store connection
+          details.
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation

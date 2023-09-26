@@ -15,7 +15,7 @@ import (
 
 	"github.com/upbound/upjet/pkg/terraform"
 
-	"github.com/upbound/upjet-provider-template/apis/v1beta1"
+	"github.com/ankasoftco/provider-vcd/apis/v1beta1"
 )
 
 const (
@@ -24,7 +24,15 @@ const (
 	errGetProviderConfig    = "cannot get referenced ProviderConfig"
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
-	errUnmarshalCredentials = "cannot unmarshal template credentials as JSON"
+	errUnmarshalCredentials = "cannot unmarshal vcd credentials as JSON"
+)
+
+const (
+	keyUser          = "user"
+	keyPassword = "password"
+
+	envUser          = "VCD_USER"
+	envPassword = "VCD_PASSWORD"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -60,6 +68,14 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		creds := map[string]string{}
 		if err := json.Unmarshal(data, &creds); err != nil {
 			return ps, errors.Wrap(err, errUnmarshalCredentials)
+		}
+
+		ps.Configuration = map[string]interface{}{}
+		if v, ok := creds[keyUser]; ok {
+			ps.Configuration[keyUser] = v
+		}
+		if v, ok := creds[keyPassword]; ok {
+			ps.Configuration[keyPassword] = v
 		}
 
 		// Set credentials in Terraform provider configuration.
