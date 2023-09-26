@@ -91,6 +91,20 @@ import (
 	serviceaccount "github.com/ankasoftco/provider-vcd/internal/controller/vcd/serviceaccount"
 	subscribedcatalog "github.com/ankasoftco/provider-vcd/internal/controller/vcd/subscribedcatalog"
 	uiplugin "github.com/ankasoftco/provider-vcd/internal/controller/vcd/uiplugin"
+	vapp "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vapp"
+	vappaccesscontrol "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vappaccesscontrol"
+	vappfirewallrules "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vappfirewallrules"
+	vappnatrules "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vappnatrules"
+	vappnetwork "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vappnetwork"
+	vapporgnetwork "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vapporgnetwork"
+	vappstaticrouting "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vappstaticrouting"
+	vappvm "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vappvm"
+	vdcgroup "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vdcgroup"
+	vm "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vm"
+	vmaffinityrule "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vmaffinityrule"
+	vminternaldisk "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vminternaldisk"
+	vmplacementpolicy "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vmplacementpolicy"
+	vmsizingpolicy "github.com/ankasoftco/provider-vcd/internal/controller/vcd/vmsizingpolicy"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -179,6 +193,20 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		serviceaccount.Setup,
 		subscribedcatalog.Setup,
 		uiplugin.Setup,
+		vapp.Setup,
+		vappaccesscontrol.Setup,
+		vappfirewallrules.Setup,
+		vappnatrules.Setup,
+		vappnetwork.Setup,
+		vapporgnetwork.Setup,
+		vappstaticrouting.Setup,
+		vappvm.Setup,
+		vdcgroup.Setup,
+		vm.Setup,
+		vmaffinityrule.Setup,
+		vminternaldisk.Setup,
+		vmplacementpolicy.Setup,
+		vmsizingpolicy.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err

@@ -6006,3 +6006,1039 @@ func (tr *UiPlugin) LateInitialize(attrs []byte) (bool, error) {
 func (tr *UiPlugin) GetTerraformSchemaVersion() int {
 	return 0
 }
+
+// GetTerraformResourceType returns Terraform resource type for this VApp
+func (mg *VApp) GetTerraformResourceType() string {
+	return "vcd_vapp"
+}
+
+// GetConnectionDetailsMapping for this VApp
+func (tr *VApp) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VApp
+func (tr *VApp) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VApp
+func (tr *VApp) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VApp
+func (tr *VApp) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VApp
+func (tr *VApp) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VApp
+func (tr *VApp) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VApp using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VApp) LateInitialize(attrs []byte) (bool, error) {
+	params := &VAppParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VApp) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VAppAccessControl
+func (mg *VAppAccessControl) GetTerraformResourceType() string {
+	return "vcd_vapp_access_control"
+}
+
+// GetConnectionDetailsMapping for this VAppAccessControl
+func (tr *VAppAccessControl) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VAppAccessControl
+func (tr *VAppAccessControl) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VAppAccessControl
+func (tr *VAppAccessControl) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VAppAccessControl
+func (tr *VAppAccessControl) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VAppAccessControl
+func (tr *VAppAccessControl) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VAppAccessControl
+func (tr *VAppAccessControl) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VAppAccessControl using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VAppAccessControl) LateInitialize(attrs []byte) (bool, error) {
+	params := &VAppAccessControlParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VAppAccessControl) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VAppFirewallRules
+func (mg *VAppFirewallRules) GetTerraformResourceType() string {
+	return "vcd_vapp_firewall_rules"
+}
+
+// GetConnectionDetailsMapping for this VAppFirewallRules
+func (tr *VAppFirewallRules) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VAppFirewallRules
+func (tr *VAppFirewallRules) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VAppFirewallRules
+func (tr *VAppFirewallRules) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VAppFirewallRules
+func (tr *VAppFirewallRules) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VAppFirewallRules
+func (tr *VAppFirewallRules) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VAppFirewallRules
+func (tr *VAppFirewallRules) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VAppFirewallRules using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VAppFirewallRules) LateInitialize(attrs []byte) (bool, error) {
+	params := &VAppFirewallRulesParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VAppFirewallRules) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VAppNatRules
+func (mg *VAppNatRules) GetTerraformResourceType() string {
+	return "vcd_vapp_nat_rules"
+}
+
+// GetConnectionDetailsMapping for this VAppNatRules
+func (tr *VAppNatRules) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VAppNatRules
+func (tr *VAppNatRules) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VAppNatRules
+func (tr *VAppNatRules) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VAppNatRules
+func (tr *VAppNatRules) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VAppNatRules
+func (tr *VAppNatRules) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VAppNatRules
+func (tr *VAppNatRules) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VAppNatRules using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VAppNatRules) LateInitialize(attrs []byte) (bool, error) {
+	params := &VAppNatRulesParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VAppNatRules) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VAppNetwork
+func (mg *VAppNetwork) GetTerraformResourceType() string {
+	return "vcd_vapp_network"
+}
+
+// GetConnectionDetailsMapping for this VAppNetwork
+func (tr *VAppNetwork) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VAppNetwork
+func (tr *VAppNetwork) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VAppNetwork
+func (tr *VAppNetwork) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VAppNetwork
+func (tr *VAppNetwork) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VAppNetwork
+func (tr *VAppNetwork) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VAppNetwork
+func (tr *VAppNetwork) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VAppNetwork using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VAppNetwork) LateInitialize(attrs []byte) (bool, error) {
+	params := &VAppNetworkParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VAppNetwork) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VAppOrgNetwork
+func (mg *VAppOrgNetwork) GetTerraformResourceType() string {
+	return "vcd_vapp_org_network"
+}
+
+// GetConnectionDetailsMapping for this VAppOrgNetwork
+func (tr *VAppOrgNetwork) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VAppOrgNetwork
+func (tr *VAppOrgNetwork) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VAppOrgNetwork
+func (tr *VAppOrgNetwork) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VAppOrgNetwork
+func (tr *VAppOrgNetwork) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VAppOrgNetwork
+func (tr *VAppOrgNetwork) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VAppOrgNetwork
+func (tr *VAppOrgNetwork) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VAppOrgNetwork using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VAppOrgNetwork) LateInitialize(attrs []byte) (bool, error) {
+	params := &VAppOrgNetworkParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VAppOrgNetwork) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VAppStaticRouting
+func (mg *VAppStaticRouting) GetTerraformResourceType() string {
+	return "vcd_vapp_static_routing"
+}
+
+// GetConnectionDetailsMapping for this VAppStaticRouting
+func (tr *VAppStaticRouting) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VAppStaticRouting
+func (tr *VAppStaticRouting) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VAppStaticRouting
+func (tr *VAppStaticRouting) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VAppStaticRouting
+func (tr *VAppStaticRouting) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VAppStaticRouting
+func (tr *VAppStaticRouting) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VAppStaticRouting
+func (tr *VAppStaticRouting) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VAppStaticRouting using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VAppStaticRouting) LateInitialize(attrs []byte) (bool, error) {
+	params := &VAppStaticRoutingParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VAppStaticRouting) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VAppVm
+func (mg *VAppVm) GetTerraformResourceType() string {
+	return "vcd_vapp_vm"
+}
+
+// GetConnectionDetailsMapping for this VAppVm
+func (tr *VAppVm) GetConnectionDetailsMapping() map[string]string {
+	return map[string]string{"customization[*].admin_password": "spec.forProvider.customization[*].adminPasswordSecretRef", "customization[*].join_domain_password": "spec.forProvider.customization[*].joinDomainPasswordSecretRef"}
+}
+
+// GetObservation of this VAppVm
+func (tr *VAppVm) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VAppVm
+func (tr *VAppVm) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VAppVm
+func (tr *VAppVm) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VAppVm
+func (tr *VAppVm) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VAppVm
+func (tr *VAppVm) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VAppVm using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VAppVm) LateInitialize(attrs []byte) (bool, error) {
+	params := &VAppVmParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VAppVm) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VdcGroup
+func (mg *VdcGroup) GetTerraformResourceType() string {
+	return "vcd_vdc_group"
+}
+
+// GetConnectionDetailsMapping for this VdcGroup
+func (tr *VdcGroup) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VdcGroup
+func (tr *VdcGroup) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VdcGroup
+func (tr *VdcGroup) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VdcGroup
+func (tr *VdcGroup) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VdcGroup
+func (tr *VdcGroup) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VdcGroup
+func (tr *VdcGroup) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VdcGroup using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VdcGroup) LateInitialize(attrs []byte) (bool, error) {
+	params := &VdcGroupParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VdcGroup) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this Vm
+func (mg *Vm) GetTerraformResourceType() string {
+	return "vcd_vm"
+}
+
+// GetConnectionDetailsMapping for this Vm
+func (tr *Vm) GetConnectionDetailsMapping() map[string]string {
+	return map[string]string{"customization[*].admin_password": "spec.forProvider.customization[*].adminPasswordSecretRef", "customization[*].join_domain_password": "spec.forProvider.customization[*].joinDomainPasswordSecretRef"}
+}
+
+// GetObservation of this Vm
+func (tr *Vm) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this Vm
+func (tr *Vm) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this Vm
+func (tr *Vm) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this Vm
+func (tr *Vm) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this Vm
+func (tr *Vm) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this Vm using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *Vm) LateInitialize(attrs []byte) (bool, error) {
+	params := &VmParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *Vm) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VmAffinityRule
+func (mg *VmAffinityRule) GetTerraformResourceType() string {
+	return "vcd_vm_affinity_rule"
+}
+
+// GetConnectionDetailsMapping for this VmAffinityRule
+func (tr *VmAffinityRule) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VmAffinityRule
+func (tr *VmAffinityRule) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VmAffinityRule
+func (tr *VmAffinityRule) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VmAffinityRule
+func (tr *VmAffinityRule) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VmAffinityRule
+func (tr *VmAffinityRule) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VmAffinityRule
+func (tr *VmAffinityRule) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VmAffinityRule using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VmAffinityRule) LateInitialize(attrs []byte) (bool, error) {
+	params := &VmAffinityRuleParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VmAffinityRule) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VmInternalDisk
+func (mg *VmInternalDisk) GetTerraformResourceType() string {
+	return "vcd_vm_internal_disk"
+}
+
+// GetConnectionDetailsMapping for this VmInternalDisk
+func (tr *VmInternalDisk) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VmInternalDisk
+func (tr *VmInternalDisk) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VmInternalDisk
+func (tr *VmInternalDisk) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VmInternalDisk
+func (tr *VmInternalDisk) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VmInternalDisk
+func (tr *VmInternalDisk) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VmInternalDisk
+func (tr *VmInternalDisk) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VmInternalDisk using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VmInternalDisk) LateInitialize(attrs []byte) (bool, error) {
+	params := &VmInternalDiskParameters_2{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VmInternalDisk) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VmPlacementPolicy
+func (mg *VmPlacementPolicy) GetTerraformResourceType() string {
+	return "vcd_vm_placement_policy"
+}
+
+// GetConnectionDetailsMapping for this VmPlacementPolicy
+func (tr *VmPlacementPolicy) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VmPlacementPolicy
+func (tr *VmPlacementPolicy) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VmPlacementPolicy
+func (tr *VmPlacementPolicy) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VmPlacementPolicy
+func (tr *VmPlacementPolicy) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VmPlacementPolicy
+func (tr *VmPlacementPolicy) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VmPlacementPolicy
+func (tr *VmPlacementPolicy) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VmPlacementPolicy using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VmPlacementPolicy) LateInitialize(attrs []byte) (bool, error) {
+	params := &VmPlacementPolicyParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VmPlacementPolicy) GetTerraformSchemaVersion() int {
+	return 0
+}
+
+// GetTerraformResourceType returns Terraform resource type for this VmSizingPolicy
+func (mg *VmSizingPolicy) GetTerraformResourceType() string {
+	return "vcd_vm_sizing_policy"
+}
+
+// GetConnectionDetailsMapping for this VmSizingPolicy
+func (tr *VmSizingPolicy) GetConnectionDetailsMapping() map[string]string {
+	return nil
+}
+
+// GetObservation of this VmSizingPolicy
+func (tr *VmSizingPolicy) GetObservation() (map[string]any, error) {
+	o, err := json.TFParser.Marshal(tr.Status.AtProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(o, &base)
+}
+
+// SetObservation for this VmSizingPolicy
+func (tr *VmSizingPolicy) SetObservation(obs map[string]any) error {
+	p, err := json.TFParser.Marshal(obs)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Status.AtProvider)
+}
+
+// GetID returns ID of underlying Terraform resource of this VmSizingPolicy
+func (tr *VmSizingPolicy) GetID() string {
+	if tr.Status.AtProvider.ID == nil {
+		return ""
+	}
+	return *tr.Status.AtProvider.ID
+}
+
+// GetParameters of this VmSizingPolicy
+func (tr *VmSizingPolicy) GetParameters() (map[string]any, error) {
+	p, err := json.TFParser.Marshal(tr.Spec.ForProvider)
+	if err != nil {
+		return nil, err
+	}
+	base := map[string]any{}
+	return base, json.TFParser.Unmarshal(p, &base)
+}
+
+// SetParameters for this VmSizingPolicy
+func (tr *VmSizingPolicy) SetParameters(params map[string]any) error {
+	p, err := json.TFParser.Marshal(params)
+	if err != nil {
+		return err
+	}
+	return json.TFParser.Unmarshal(p, &tr.Spec.ForProvider)
+}
+
+// LateInitialize this VmSizingPolicy using its observed tfState.
+// returns True if there are any spec changes for the resource.
+func (tr *VmSizingPolicy) LateInitialize(attrs []byte) (bool, error) {
+	params := &VmSizingPolicyParameters{}
+	if err := json.TFParser.Unmarshal(attrs, params); err != nil {
+		return false, errors.Wrap(err, "failed to unmarshal Terraform state parameters for late-initialization")
+	}
+	opts := []resource.GenericLateInitializerOption{resource.WithZeroValueJSONOmitEmptyFilter(resource.CNameWildcard)}
+
+	li := resource.NewGenericLateInitializer(opts...)
+	return li.LateInitialize(&tr.Spec.ForProvider, params)
+}
+
+// GetTerraformSchemaVersion returns the associated Terraform schema version
+func (tr *VmSizingPolicy) GetTerraformSchemaVersion() int {
+	return 0
+}

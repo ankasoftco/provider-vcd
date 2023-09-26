@@ -93,6 +93,20 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"vcd_service_account":								config.IdentifierFromProvider,
 	"vcd_subscribed_catalog":							config.IdentifierFromProvider,
 	"vcd_ui_plugin":									config.IdentifierFromProvider,
+	"vcd_vapp":											config.IdentifierFromProvider,
+	"vcd_vapp_access_control":							config.IdentifierFromProvider,
+	"vcd_vapp_firewall_rules":							config.IdentifierFromProvider,
+	"vcd_vapp_nat_rules":								config.IdentifierFromProvider,
+	"vcd_vapp_network":									config.IdentifierFromProvider,
+	"vcd_vapp_org_network":								config.IdentifierFromProvider,
+	"vcd_vapp_static_routing":							config.IdentifierFromProvider,
+	"vcd_vapp_vm":										config.IdentifierFromProvider,
+	"vcd_vdc_group":									config.IdentifierFromProvider,
+	"vcd_vm":											config.IdentifierFromProvider,
+	"vcd_vm_affinity_rule":								config.IdentifierFromProvider,
+	"vcd_vm_internal_disk":								config.IdentifierFromProvider,
+	"vcd_vm_placement_policy":							config.IdentifierFromProvider,
+	"vcd_vm_sizing_policy":								config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the

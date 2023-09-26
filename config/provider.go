@@ -31,6 +31,9 @@ import (
 	serviceAccount "github.com/ankasoftco/provider-vcd/config/service_account"
 	subscribedCatalog "github.com/ankasoftco/provider-vcd/config/subscribed_catalog"
 	uiPlugin "github.com/ankasoftco/provider-vcd/config/ui_plugin"
+	vApp "github.com/ankasoftco/provider-vcd/config/vapp"
+	vdcGroup "github.com/ankasoftco/provider-vcd/config/vdc_group"
+	vm "github.com/ankasoftco/provider-vcd/config/vm"
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
 )
@@ -81,6 +84,9 @@ func GetProvider() *ujconfig.Provider {
 		serviceAccount.Configure,
 		subscribedCatalog.Configure,
 		uiPlugin.Configure,
+		vApp.Configure,
+		vdcGroup.Configure,
+		vm.Configure,
 	} {
 		configure(pc)
 	}

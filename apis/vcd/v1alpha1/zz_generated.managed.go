@@ -6162,3 +6162,1067 @@ func (mg *UiPlugin) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetai
 func (mg *UiPlugin) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
+
+// GetCondition of this VApp.
+func (mg *VApp) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VApp.
+func (mg *VApp) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VApp.
+func (mg *VApp) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VApp.
+func (mg *VApp) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VApp.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VApp) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VApp.
+func (mg *VApp) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VApp.
+func (mg *VApp) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VApp.
+func (mg *VApp) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VApp.
+func (mg *VApp) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VApp.
+func (mg *VApp) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VApp.
+func (mg *VApp) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VApp.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VApp) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VApp.
+func (mg *VApp) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VApp.
+func (mg *VApp) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VAppAccessControl.
+func (mg *VAppAccessControl) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VAppAccessControl.
+func (mg *VAppAccessControl) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VAppAccessControl.
+func (mg *VAppAccessControl) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VAppAccessControl.
+func (mg *VAppAccessControl) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VAppAccessControl.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VAppAccessControl) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VAppAccessControl.
+func (mg *VAppAccessControl) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VAppAccessControl.
+func (mg *VAppAccessControl) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VAppAccessControl.
+func (mg *VAppAccessControl) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VAppAccessControl.
+func (mg *VAppAccessControl) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VAppAccessControl.
+func (mg *VAppAccessControl) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VAppAccessControl.
+func (mg *VAppAccessControl) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VAppAccessControl.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VAppAccessControl) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VAppAccessControl.
+func (mg *VAppAccessControl) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VAppAccessControl.
+func (mg *VAppAccessControl) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VAppFirewallRules.
+func (mg *VAppFirewallRules) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VAppFirewallRules.
+func (mg *VAppFirewallRules) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VAppFirewallRules.
+func (mg *VAppFirewallRules) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VAppFirewallRules.
+func (mg *VAppFirewallRules) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VAppFirewallRules.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VAppFirewallRules) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VAppFirewallRules.
+func (mg *VAppFirewallRules) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VAppFirewallRules.
+func (mg *VAppFirewallRules) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VAppFirewallRules.
+func (mg *VAppFirewallRules) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VAppFirewallRules.
+func (mg *VAppFirewallRules) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VAppFirewallRules.
+func (mg *VAppFirewallRules) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VAppFirewallRules.
+func (mg *VAppFirewallRules) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VAppFirewallRules.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VAppFirewallRules) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VAppFirewallRules.
+func (mg *VAppFirewallRules) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VAppFirewallRules.
+func (mg *VAppFirewallRules) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VAppNatRules.
+func (mg *VAppNatRules) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VAppNatRules.
+func (mg *VAppNatRules) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VAppNatRules.
+func (mg *VAppNatRules) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VAppNatRules.
+func (mg *VAppNatRules) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VAppNatRules.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VAppNatRules) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VAppNatRules.
+func (mg *VAppNatRules) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VAppNatRules.
+func (mg *VAppNatRules) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VAppNatRules.
+func (mg *VAppNatRules) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VAppNatRules.
+func (mg *VAppNatRules) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VAppNatRules.
+func (mg *VAppNatRules) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VAppNatRules.
+func (mg *VAppNatRules) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VAppNatRules.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VAppNatRules) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VAppNatRules.
+func (mg *VAppNatRules) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VAppNatRules.
+func (mg *VAppNatRules) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VAppNetwork.
+func (mg *VAppNetwork) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VAppNetwork.
+func (mg *VAppNetwork) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VAppNetwork.
+func (mg *VAppNetwork) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VAppNetwork.
+func (mg *VAppNetwork) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VAppNetwork.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VAppNetwork) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VAppNetwork.
+func (mg *VAppNetwork) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VAppNetwork.
+func (mg *VAppNetwork) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VAppNetwork.
+func (mg *VAppNetwork) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VAppNetwork.
+func (mg *VAppNetwork) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VAppNetwork.
+func (mg *VAppNetwork) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VAppNetwork.
+func (mg *VAppNetwork) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VAppNetwork.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VAppNetwork) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VAppNetwork.
+func (mg *VAppNetwork) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VAppNetwork.
+func (mg *VAppNetwork) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VAppOrgNetwork.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VAppOrgNetwork) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VAppOrgNetwork.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VAppOrgNetwork) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VAppOrgNetwork.
+func (mg *VAppOrgNetwork) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VAppStaticRouting.
+func (mg *VAppStaticRouting) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VAppStaticRouting.
+func (mg *VAppStaticRouting) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VAppStaticRouting.
+func (mg *VAppStaticRouting) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VAppStaticRouting.
+func (mg *VAppStaticRouting) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VAppStaticRouting.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VAppStaticRouting) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VAppStaticRouting.
+func (mg *VAppStaticRouting) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VAppStaticRouting.
+func (mg *VAppStaticRouting) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VAppStaticRouting.
+func (mg *VAppStaticRouting) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VAppStaticRouting.
+func (mg *VAppStaticRouting) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VAppStaticRouting.
+func (mg *VAppStaticRouting) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VAppStaticRouting.
+func (mg *VAppStaticRouting) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VAppStaticRouting.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VAppStaticRouting) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VAppStaticRouting.
+func (mg *VAppStaticRouting) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VAppStaticRouting.
+func (mg *VAppStaticRouting) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VAppVm.
+func (mg *VAppVm) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VAppVm.
+func (mg *VAppVm) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VAppVm.
+func (mg *VAppVm) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VAppVm.
+func (mg *VAppVm) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VAppVm.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VAppVm) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VAppVm.
+func (mg *VAppVm) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VAppVm.
+func (mg *VAppVm) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VAppVm.
+func (mg *VAppVm) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VAppVm.
+func (mg *VAppVm) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VAppVm.
+func (mg *VAppVm) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VAppVm.
+func (mg *VAppVm) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VAppVm.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VAppVm) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VAppVm.
+func (mg *VAppVm) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VAppVm.
+func (mg *VAppVm) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VdcGroup.
+func (mg *VdcGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VdcGroup.
+func (mg *VdcGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VdcGroup.
+func (mg *VdcGroup) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VdcGroup.
+func (mg *VdcGroup) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VdcGroup.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VdcGroup) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VdcGroup.
+func (mg *VdcGroup) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VdcGroup.
+func (mg *VdcGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VdcGroup.
+func (mg *VdcGroup) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VdcGroup.
+func (mg *VdcGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VdcGroup.
+func (mg *VdcGroup) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VdcGroup.
+func (mg *VdcGroup) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VdcGroup.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VdcGroup) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VdcGroup.
+func (mg *VdcGroup) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VdcGroup.
+func (mg *VdcGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this Vm.
+func (mg *Vm) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this Vm.
+func (mg *Vm) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this Vm.
+func (mg *Vm) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this Vm.
+func (mg *Vm) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this Vm.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *Vm) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this Vm.
+func (mg *Vm) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this Vm.
+func (mg *Vm) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this Vm.
+func (mg *Vm) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this Vm.
+func (mg *Vm) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this Vm.
+func (mg *Vm) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this Vm.
+func (mg *Vm) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this Vm.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *Vm) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this Vm.
+func (mg *Vm) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this Vm.
+func (mg *Vm) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VmAffinityRule.
+func (mg *VmAffinityRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VmAffinityRule.
+func (mg *VmAffinityRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VmAffinityRule.
+func (mg *VmAffinityRule) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VmAffinityRule.
+func (mg *VmAffinityRule) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VmAffinityRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VmAffinityRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VmAffinityRule.
+func (mg *VmAffinityRule) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VmAffinityRule.
+func (mg *VmAffinityRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VmAffinityRule.
+func (mg *VmAffinityRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VmAffinityRule.
+func (mg *VmAffinityRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VmAffinityRule.
+func (mg *VmAffinityRule) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VmAffinityRule.
+func (mg *VmAffinityRule) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VmAffinityRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VmAffinityRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VmAffinityRule.
+func (mg *VmAffinityRule) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VmAffinityRule.
+func (mg *VmAffinityRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VmInternalDisk.
+func (mg *VmInternalDisk) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VmInternalDisk.
+func (mg *VmInternalDisk) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VmInternalDisk.
+func (mg *VmInternalDisk) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VmInternalDisk.
+func (mg *VmInternalDisk) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VmInternalDisk.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VmInternalDisk) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VmInternalDisk.
+func (mg *VmInternalDisk) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VmInternalDisk.
+func (mg *VmInternalDisk) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VmInternalDisk.
+func (mg *VmInternalDisk) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VmInternalDisk.
+func (mg *VmInternalDisk) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VmInternalDisk.
+func (mg *VmInternalDisk) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VmInternalDisk.
+func (mg *VmInternalDisk) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VmInternalDisk.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VmInternalDisk) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VmInternalDisk.
+func (mg *VmInternalDisk) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VmInternalDisk.
+func (mg *VmInternalDisk) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VmPlacementPolicy.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VmPlacementPolicy) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VmPlacementPolicy.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VmPlacementPolicy) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VmPlacementPolicy.
+func (mg *VmPlacementPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this VmSizingPolicy.
+func (mg *VmSizingPolicy) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this VmSizingPolicy.
+func (mg *VmSizingPolicy) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this VmSizingPolicy.
+func (mg *VmSizingPolicy) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this VmSizingPolicy.
+func (mg *VmSizingPolicy) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this VmSizingPolicy.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *VmSizingPolicy) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this VmSizingPolicy.
+func (mg *VmSizingPolicy) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this VmSizingPolicy.
+func (mg *VmSizingPolicy) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this VmSizingPolicy.
+func (mg *VmSizingPolicy) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this VmSizingPolicy.
+func (mg *VmSizingPolicy) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this VmSizingPolicy.
+func (mg *VmSizingPolicy) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this VmSizingPolicy.
+func (mg *VmSizingPolicy) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this VmSizingPolicy.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *VmSizingPolicy) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this VmSizingPolicy.
+func (mg *VmSizingPolicy) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this VmSizingPolicy.
+func (mg *VmSizingPolicy) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}

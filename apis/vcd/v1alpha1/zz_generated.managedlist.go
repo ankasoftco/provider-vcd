@@ -735,3 +735,129 @@ func (l *UiPluginList) GetItems() []resource.Managed {
 	}
 	return items
 }
+
+// GetItems of this VAppAccessControlList.
+func (l *VAppAccessControlList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VAppFirewallRulesList.
+func (l *VAppFirewallRulesList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VAppList.
+func (l *VAppList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VAppNatRulesList.
+func (l *VAppNatRulesList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VAppNetworkList.
+func (l *VAppNetworkList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VAppOrgNetworkList.
+func (l *VAppOrgNetworkList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VAppStaticRoutingList.
+func (l *VAppStaticRoutingList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VAppVmList.
+func (l *VAppVmList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VdcGroupList.
+func (l *VdcGroupList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VmAffinityRuleList.
+func (l *VmAffinityRuleList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VmInternalDiskList.
+func (l *VmInternalDiskList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VmList.
+func (l *VmList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VmPlacementPolicyList.
+func (l *VmPlacementPolicyList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
+// GetItems of this VmSizingPolicyList.
+func (l *VmSizingPolicyList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
