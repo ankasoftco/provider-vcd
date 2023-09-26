@@ -1754,3 +1754,2891 @@ func (mg *LbVirtualServer) SetPublishConnectionDetailsTo(r *xpv1.PublishConnecti
 func (mg *LbVirtualServer) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }
+
+// GetCondition of this NetworkDirect.
+func (mg *NetworkDirect) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NetworkDirect.
+func (mg *NetworkDirect) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NetworkDirect.
+func (mg *NetworkDirect) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NetworkDirect.
+func (mg *NetworkDirect) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NetworkDirect.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NetworkDirect) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NetworkDirect.
+func (mg *NetworkDirect) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NetworkDirect.
+func (mg *NetworkDirect) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NetworkDirect.
+func (mg *NetworkDirect) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NetworkDirect.
+func (mg *NetworkDirect) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NetworkDirect.
+func (mg *NetworkDirect) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NetworkDirect.
+func (mg *NetworkDirect) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NetworkDirect.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NetworkDirect) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NetworkDirect.
+func (mg *NetworkDirect) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NetworkDirect.
+func (mg *NetworkDirect) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NetworkIsolated.
+func (mg *NetworkIsolated) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NetworkIsolated.
+func (mg *NetworkIsolated) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NetworkIsolated.
+func (mg *NetworkIsolated) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NetworkIsolated.
+func (mg *NetworkIsolated) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NetworkIsolated.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NetworkIsolated) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NetworkIsolated.
+func (mg *NetworkIsolated) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NetworkIsolated.
+func (mg *NetworkIsolated) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NetworkIsolated.
+func (mg *NetworkIsolated) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NetworkIsolated.
+func (mg *NetworkIsolated) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NetworkIsolated.
+func (mg *NetworkIsolated) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NetworkIsolated.
+func (mg *NetworkIsolated) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NetworkIsolated.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NetworkIsolated) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NetworkIsolated.
+func (mg *NetworkIsolated) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NetworkIsolated.
+func (mg *NetworkIsolated) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NetworkIsolatedV2.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NetworkIsolatedV2) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NetworkIsolatedV2.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NetworkIsolatedV2) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NetworkIsolatedV2.
+func (mg *NetworkIsolatedV2) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NetworkRouted.
+func (mg *NetworkRouted) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NetworkRouted.
+func (mg *NetworkRouted) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NetworkRouted.
+func (mg *NetworkRouted) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NetworkRouted.
+func (mg *NetworkRouted) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NetworkRouted.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NetworkRouted) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NetworkRouted.
+func (mg *NetworkRouted) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NetworkRouted.
+func (mg *NetworkRouted) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NetworkRouted.
+func (mg *NetworkRouted) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NetworkRouted.
+func (mg *NetworkRouted) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NetworkRouted.
+func (mg *NetworkRouted) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NetworkRouted.
+func (mg *NetworkRouted) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NetworkRouted.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NetworkRouted) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NetworkRouted.
+func (mg *NetworkRouted) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NetworkRouted.
+func (mg *NetworkRouted) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NetworkRoutedV2.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NetworkRoutedV2) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NetworkRoutedV2.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NetworkRoutedV2) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NetworkRoutedV2.
+func (mg *NetworkRoutedV2) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtAlbCloud.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtAlbCloud) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtAlbCloud.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtAlbCloud) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtAlbCloud.
+func (mg *NsxtAlbCloud) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtAlbController.
+func (mg *NsxtAlbController) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtAlbController.
+func (mg *NsxtAlbController) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtAlbController.
+func (mg *NsxtAlbController) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtAlbController.
+func (mg *NsxtAlbController) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtAlbController.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtAlbController) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtAlbController.
+func (mg *NsxtAlbController) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtAlbController.
+func (mg *NsxtAlbController) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtAlbController.
+func (mg *NsxtAlbController) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtAlbController.
+func (mg *NsxtAlbController) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtAlbController.
+func (mg *NsxtAlbController) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtAlbController.
+func (mg *NsxtAlbController) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtAlbController.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtAlbController) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtAlbController.
+func (mg *NsxtAlbController) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtAlbController.
+func (mg *NsxtAlbController) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtAlbEdgegatewayServiceEngineGroup.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtAlbEdgegatewayServiceEngineGroup.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtAlbEdgegatewayServiceEngineGroup.
+func (mg *NsxtAlbEdgegatewayServiceEngineGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtAlbPool.
+func (mg *NsxtAlbPool) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtAlbPool.
+func (mg *NsxtAlbPool) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtAlbPool.
+func (mg *NsxtAlbPool) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtAlbPool.
+func (mg *NsxtAlbPool) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtAlbPool.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtAlbPool) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtAlbPool.
+func (mg *NsxtAlbPool) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtAlbPool.
+func (mg *NsxtAlbPool) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtAlbPool.
+func (mg *NsxtAlbPool) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtAlbPool.
+func (mg *NsxtAlbPool) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtAlbPool.
+func (mg *NsxtAlbPool) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtAlbPool.
+func (mg *NsxtAlbPool) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtAlbPool.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtAlbPool) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtAlbPool.
+func (mg *NsxtAlbPool) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtAlbPool.
+func (mg *NsxtAlbPool) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtAlbServiceEngineGroup.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtAlbServiceEngineGroup) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtAlbServiceEngineGroup.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtAlbServiceEngineGroup) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtAlbServiceEngineGroup.
+func (mg *NsxtAlbServiceEngineGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtAlbSettings.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtAlbSettings) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtAlbSettings.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtAlbSettings) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtAlbSettings.
+func (mg *NsxtAlbSettings) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtAlbVirtualService.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtAlbVirtualService) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtAlbVirtualService.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtAlbVirtualService) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtAlbVirtualService.
+func (mg *NsxtAlbVirtualService) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtAppPortProfile.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtAppPortProfile) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtAppPortProfile.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtAppPortProfile) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtAppPortProfile.
+func (mg *NsxtAppPortProfile) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtDistributedFirewall.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtDistributedFirewall) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtDistributedFirewall.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtDistributedFirewall) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtDistributedFirewall.
+func (mg *NsxtDistributedFirewall) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtDistributedFirewallRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtDistributedFirewallRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtDistributedFirewallRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtDistributedFirewallRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtDistributedFirewallRule.
+func (mg *NsxtDistributedFirewallRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtDynamicSecurityGroup.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtDynamicSecurityGroup) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtDynamicSecurityGroup.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtDynamicSecurityGroup) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtDynamicSecurityGroup.
+func (mg *NsxtDynamicSecurityGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtEdgeGateway.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGateway) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtEdgeGateway.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGateway) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtEdgeGateway.
+func (mg *NsxtEdgeGateway) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtEdgeGatewayBgpIpPrefixList.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtEdgeGatewayBgpIpPrefixList.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtEdgeGatewayBgpIpPrefixList.
+func (mg *NsxtEdgeGatewayBgpIpPrefixList) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtEdgeGatewayBgpNeighbor.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayBgpNeighbor) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtEdgeGatewayBgpNeighbor.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayBgpNeighbor) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtEdgeGatewayBgpNeighbor.
+func (mg *NsxtEdgeGatewayBgpNeighbor) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtEdgeGatewayDhcpV6.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayDhcpV6) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtEdgeGatewayDhcpV6.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayDhcpV6) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtEdgeGatewayDhcpV6.
+func (mg *NsxtEdgeGatewayDhcpV6) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtEdgeGatewayRateLimit.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayRateLimit) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtEdgeGatewayRateLimit.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayRateLimit) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtEdgeGatewayRateLimit.
+func (mg *NsxtEdgeGatewayRateLimit) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtEdgeGatewayStaticRoute.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayStaticRoute) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtEdgeGatewayStaticRoute.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtEdgeGatewayStaticRoute) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtEdgeGatewayStaticRoute.
+func (mg *NsxtEdgeGatewayStaticRoute) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtEdgegatewayBgpConfiguration.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtEdgegatewayBgpConfiguration) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtEdgegatewayBgpConfiguration.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtEdgegatewayBgpConfiguration) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtEdgegatewayBgpConfiguration.
+func (mg *NsxtEdgegatewayBgpConfiguration) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtFirewall.
+func (mg *NsxtFirewall) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtFirewall.
+func (mg *NsxtFirewall) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtFirewall.
+func (mg *NsxtFirewall) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtFirewall.
+func (mg *NsxtFirewall) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtFirewall.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtFirewall) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtFirewall.
+func (mg *NsxtFirewall) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtFirewall.
+func (mg *NsxtFirewall) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtFirewall.
+func (mg *NsxtFirewall) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtFirewall.
+func (mg *NsxtFirewall) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtFirewall.
+func (mg *NsxtFirewall) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtFirewall.
+func (mg *NsxtFirewall) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtFirewall.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtFirewall) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtFirewall.
+func (mg *NsxtFirewall) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtFirewall.
+func (mg *NsxtFirewall) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtIpSet.
+func (mg *NsxtIpSet) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtIpSet.
+func (mg *NsxtIpSet) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtIpSet.
+func (mg *NsxtIpSet) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtIpSet.
+func (mg *NsxtIpSet) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtIpSet.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtIpSet) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtIpSet.
+func (mg *NsxtIpSet) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtIpSet.
+func (mg *NsxtIpSet) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtIpSet.
+func (mg *NsxtIpSet) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtIpSet.
+func (mg *NsxtIpSet) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtIpSet.
+func (mg *NsxtIpSet) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtIpSet.
+func (mg *NsxtIpSet) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtIpSet.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtIpSet) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtIpSet.
+func (mg *NsxtIpSet) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtIpSet.
+func (mg *NsxtIpSet) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtIpsecVpnTunnel.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtIpsecVpnTunnel) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtIpsecVpnTunnel.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtIpsecVpnTunnel) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtIpsecVpnTunnel.
+func (mg *NsxtIpsecVpnTunnel) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtNatRule.
+func (mg *NsxtNatRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtNatRule.
+func (mg *NsxtNatRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtNatRule.
+func (mg *NsxtNatRule) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtNatRule.
+func (mg *NsxtNatRule) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtNatRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtNatRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtNatRule.
+func (mg *NsxtNatRule) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtNatRule.
+func (mg *NsxtNatRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtNatRule.
+func (mg *NsxtNatRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtNatRule.
+func (mg *NsxtNatRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtNatRule.
+func (mg *NsxtNatRule) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtNatRule.
+func (mg *NsxtNatRule) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtNatRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtNatRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtNatRule.
+func (mg *NsxtNatRule) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtNatRule.
+func (mg *NsxtNatRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtNetworkDhcp.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtNetworkDhcp) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtNetworkDhcp.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtNetworkDhcp) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtNetworkDhcp.
+func (mg *NsxtNetworkDhcp) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtNetworkDhcpBinding.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtNetworkDhcpBinding) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtNetworkDhcpBinding.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtNetworkDhcpBinding) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtNetworkDhcpBinding.
+func (mg *NsxtNetworkDhcpBinding) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtNetworkImported.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtNetworkImported) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtNetworkImported.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtNetworkImported) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtNetworkImported.
+func (mg *NsxtNetworkImported) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtRouteAdvertisement.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtRouteAdvertisement) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtRouteAdvertisement.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtRouteAdvertisement) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtRouteAdvertisement.
+func (mg *NsxtRouteAdvertisement) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxtSecurityGroup.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxtSecurityGroup) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxtSecurityGroup.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxtSecurityGroup) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxtSecurityGroup.
+func (mg *NsxtSecurityGroup) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxvDhcpRelay.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxvDhcpRelay) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxvDhcpRelay.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxvDhcpRelay) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxvDhcpRelay.
+func (mg *NsxvDhcpRelay) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxvDistributedFirewall.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxvDistributedFirewall) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxvDistributedFirewall.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxvDistributedFirewall) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxvDistributedFirewall.
+func (mg *NsxvDistributedFirewall) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxvDnat.
+func (mg *NsxvDnat) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxvDnat.
+func (mg *NsxvDnat) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxvDnat.
+func (mg *NsxvDnat) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxvDnat.
+func (mg *NsxvDnat) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxvDnat.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxvDnat) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxvDnat.
+func (mg *NsxvDnat) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxvDnat.
+func (mg *NsxvDnat) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxvDnat.
+func (mg *NsxvDnat) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxvDnat.
+func (mg *NsxvDnat) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxvDnat.
+func (mg *NsxvDnat) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxvDnat.
+func (mg *NsxvDnat) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxvDnat.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxvDnat) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxvDnat.
+func (mg *NsxvDnat) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxvDnat.
+func (mg *NsxvDnat) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxvFirewallRule.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxvFirewallRule) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxvFirewallRule.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxvFirewallRule) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxvFirewallRule.
+func (mg *NsxvFirewallRule) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxvIpSet.
+func (mg *NsxvIpSet) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxvIpSet.
+func (mg *NsxvIpSet) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxvIpSet.
+func (mg *NsxvIpSet) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxvIpSet.
+func (mg *NsxvIpSet) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxvIpSet.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxvIpSet) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxvIpSet.
+func (mg *NsxvIpSet) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxvIpSet.
+func (mg *NsxvIpSet) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxvIpSet.
+func (mg *NsxvIpSet) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxvIpSet.
+func (mg *NsxvIpSet) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxvIpSet.
+func (mg *NsxvIpSet) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxvIpSet.
+func (mg *NsxvIpSet) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxvIpSet.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxvIpSet) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxvIpSet.
+func (mg *NsxvIpSet) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxvIpSet.
+func (mg *NsxvIpSet) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
+// GetCondition of this NsxvSnat.
+func (mg *NsxvSnat) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this NsxvSnat.
+func (mg *NsxvSnat) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicy of this NsxvSnat.
+func (mg *NsxvSnat) GetManagementPolicy() xpv1.ManagementPolicy {
+	return mg.Spec.ManagementPolicy
+}
+
+// GetProviderConfigReference of this NsxvSnat.
+func (mg *NsxvSnat) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+/*
+GetProviderReference of this NsxvSnat.
+Deprecated: Use GetProviderConfigReference.
+*/
+func (mg *NsxvSnat) GetProviderReference() *xpv1.Reference {
+	return mg.Spec.ProviderReference
+}
+
+// GetPublishConnectionDetailsTo of this NsxvSnat.
+func (mg *NsxvSnat) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this NsxvSnat.
+func (mg *NsxvSnat) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this NsxvSnat.
+func (mg *NsxvSnat) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this NsxvSnat.
+func (mg *NsxvSnat) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicy of this NsxvSnat.
+func (mg *NsxvSnat) SetManagementPolicy(r xpv1.ManagementPolicy) {
+	mg.Spec.ManagementPolicy = r
+}
+
+// SetProviderConfigReference of this NsxvSnat.
+func (mg *NsxvSnat) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+/*
+SetProviderReference of this NsxvSnat.
+Deprecated: Use SetProviderConfigReference.
+*/
+func (mg *NsxvSnat) SetProviderReference(r *xpv1.Reference) {
+	mg.Spec.ProviderReference = r
+}
+
+// SetPublishConnectionDetailsTo of this NsxvSnat.
+func (mg *NsxvSnat) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this NsxvSnat.
+func (mg *NsxvSnat) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}

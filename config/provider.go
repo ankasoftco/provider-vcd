@@ -19,7 +19,10 @@ import (
 	insertedMedia "github.com/ankasoftco/provider-vcd/config/inserted_media"
 	ipSpace "github.com/ankasoftco/provider-vcd/config/ip_space"
 	lb "github.com/ankasoftco/provider-vcd/config/lb"
-	
+	network "github.com/ankasoftco/provider-vcd/config/network"
+	nsxt "github.com/ankasoftco/provider-vcd/config/nsxt"
+	nsxv "github.com/ankasoftco/provider-vcd/config/nsxv"
+
 	ujconfig "github.com/upbound/upjet/pkg/config"
 )
 
@@ -57,6 +60,9 @@ func GetProvider() *ujconfig.Provider {
 		insertedMedia.Configure,
 		ipSpace.Configure,
 		lb.Configure,
+		network.Configure,
+		nsxt.Configure,
+		nsxv.Configure,
 	} {
 		configure(pc)
 	}

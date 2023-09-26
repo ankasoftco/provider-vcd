@@ -1,0 +1,557 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.11.3
+  creationTimestamp: null
+  name: nsxtalbpools.vcd.crossplane.io
+spec:
+  group: vcd.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - vcd
+    kind: NsxtAlbPool
+    listKind: NsxtAlbPoolList
+    plural: nsxtalbpools
+    singular: nsxtalbpool
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: NsxtAlbPool is the Schema for the NsxtAlbPools API. <no value>
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: NsxtAlbPoolSpec defines the desired state of NsxtAlbPool
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: 'DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource. This field is planned to be deprecated
+                  in favor of the ManagementPolicy field in a future release. Currently,
+                  both could be set independently and non-default values would be
+                  honored if the feature flag is enabled. See the design doc for more
+                  information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  algorithm:
+                    description: Algorithm for choosing pool members (default LEAST_CONNECTIONS).
+                      Other `ROUND_ROBIN`,`CONSISTENT_HASH`, `FASTEST_RESPONSE`, `LEAST_LOAD`,
+                      `FEWEST_SERVERS`, `RANDOM`, `FEWEST_TASKS`,`CORE_AFFINITY`
+                    type: string
+                  caCertificateIds:
+                    description: A set of root certificate IDs to use when validating
+                      certificates presented by pool members
+                    items:
+                      type: string
+                    type: array
+                  cnCheckEnabled:
+                    description: Boolean flag if common name check of the certificate
+                      should be enabled
+                    type: boolean
+                  defaultPort:
+                    description: Default Port defines destination server port used
+                      by the traffic sent to the member (default 80)
+                    type: number
+                  description:
+                    description: Description of ALB Pool
+                    type: string
+                  domainNames:
+                    description: List of domain names which will be used to verify
+                      common names
+                    items:
+                      type: string
+                    type: array
+                  edgeGatewayId:
+                    description: Edge gateway ID in which ALB Pool should be created
+                    type: string
+                  enabled:
+                    description: Boolean value if ALB Pool is enabled or not (default
+                      true)
+                    type: boolean
+                  gracefulTimeoutPeriod:
+                    description: Maximum time in minutes to gracefully disable pool
+                      member (default 1)
+                    type: number
+                  healthMonitor:
+                    items:
+                      properties:
+                        type:
+                          description: Type of health monitor. One of `HTTP`, `HTTPS`,
+                            `TCP`, `UDP`, `PING`
+                          type: string
+                      required:
+                      - type
+                      type: object
+                    type: array
+                  member:
+                    description: ALB Pool Members
+                    items:
+                      properties:
+                        enabled:
+                          description: Defines if pool member is accepts traffic (default
+                            'true')
+                          type: boolean
+                        ipAddress:
+                          description: IP address of pool member
+                          type: string
+                        port:
+                          description: Member port
+                          type: number
+                        ratio:
+                          description: Ratio of selecting eligible servers in the
+                            pool
+                          type: number
+                      required:
+                      - ipAddress
+                      type: object
+                    type: array
+                  memberGroupId:
+                    description: ID of Firewall Group to use for Pool Membership (VCD
+                      10.4.1+)
+                    type: string
+                  name:
+                    description: Name of ALB Pool
+                    type: string
+                  org:
+                    description: The name of organization to use, optional if defined
+                      at provider level. Useful when connected as sysadmin working
+                      across different organizations
+                    type: string
+                  passiveMonitoringEnabled:
+                    description: Monitors if the traffic is accepted by node (default
+                      true)
+                    type: boolean
+                  persistenceProfile:
+                    items:
+                      properties:
+                        type:
+                          description: Type of persistence strategy. One of `CLIENT_IP`,
+                            `HTTP_COOKIE`, `CUSTOM_HTTP_HEADER`, `APP_COOKIE`, `TLS`
+                          type: string
+                        value:
+                          description: Value of attribute based on persistence type
+                          type: string
+                      required:
+                      - type
+                      type: object
+                    type: array
+                  vdc:
+                    description: The name of VDC to use, optional if defined at provider
+                      level
+                    type: string
+                type: object
+              managementPolicy:
+                default: FullControl
+                description: 'THIS IS AN ALPHA FIELD. Do not use it in production.
+                  It is not honored unless the relevant Crossplane feature flag is
+                  enabled, and may be changed or removed without notice. ManagementPolicy
+                  specifies the level of control Crossplane has over the managed external
+                  resource. This field is planned to replace the DeletionPolicy field
+                  in a future release. Currently, both could be set independently
+                  and non-default values would be honored if the feature flag is enabled.
+                  See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223'
+                enum:
+                - FullControl
+                - ObserveOnly
+                - OrphanOnDelete
+                type: string
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                  policy:
+                    description: Policies for referencing.
+                    properties:
+                      resolution:
+                        default: Required
+                        description: Resolution specifies whether resolution of this
+                          reference is required. The default is 'Required', which
+                          means the reconcile will fail if the reference cannot be
+                          resolved. 'Optional' means this reference will be a no-op
+                          if it cannot be resolved.
+                        enum:
+                        - Required
+                        - Optional
+                        type: string
+                      resolve:
+                        description: Resolve specifies when this reference should
+                          be resolved. The default is 'IfNotPresent', which will attempt
+                          to resolve the reference only when the corresponding field
+                          is not present. Use 'Always' to resolve the reference on
+                          every reconcile.
+                        enum:
+                        - Always
+                        - IfNotPresent
+                        type: string
+                    type: object
+                required:
+                - name
+                type: object
+              publishConnectionDetailsTo:
+                description: PublishConnectionDetailsTo specifies the connection secret
+                  config which contains a name, metadata and a reference to secret
+                  store config to which any connection details for this managed resource
+                  should be written. Connection details frequently include the endpoint,
+                  username, and password required to connect to the managed resource.
+                properties:
+                  configRef:
+                    default:
+                      name: default
+                    description: SecretStoreConfigRef specifies which secret store
+                      config should be used for this ConnectionSecret.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                      policy:
+                        description: Policies for referencing.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: Resolution specifies whether resolution of
+                              this reference is required. The default is 'Required',
+                              which means the reconcile will fail if the reference
+                              cannot be resolved. 'Optional' means this reference
+                              will be a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: Resolve specifies when this reference should
+                              be resolved. The default is 'IfNotPresent', which will
+                              attempt to resolve the reference only when the corresponding
+                              field is not present. Use 'Always' to resolve the reference
+                              on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  metadata:
+                    description: Metadata is the metadata for connection secret.
+                    properties:
+                      annotations:
+                        additionalProperties:
+                          type: string
+                        description: Annotations are the annotations to be added to
+                          connection secret. - For Kubernetes secrets, this will be
+                          used as "metadata.annotations". - It is up to Secret Store
+                          implementation for others store types.
+                        type: object
+                      labels:
+                        additionalProperties:
+                          type: string
+                        description: Labels are the labels/tags to be added to connection
+                          secret. - For Kubernetes secrets, this will be used as "metadata.labels".
+                          - It is up to Secret Store implementation for others store
+                          types.
+                        type: object
+                      type:
+                        description: Type is the SecretType for the connection secret.
+                          - Only valid for Kubernetes Secret Stores.
+                        type: string
+                    type: object
+                  name:
+                    description: Name is the name of the connection secret.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource. This field is planned to be replaced in a future
+                  release in favor of PublishConnectionDetailsTo. Currently, both
+                  could be set independently and connection details would be published
+                  to both without affecting each other.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+            x-kubernetes-validations:
+            - message: edgeGatewayId is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.edgeGatewayId)
+            - message: name is a required parameter
+              rule: self.managementPolicy == 'ObserveOnly' || has(self.forProvider.name)
+          status:
+            description: NsxtAlbPoolStatus defines the observed state of NsxtAlbPool.
+            properties:
+              atProvider:
+                properties:
+                  algorithm:
+                    description: Algorithm for choosing pool members (default LEAST_CONNECTIONS).
+                      Other `ROUND_ROBIN`,`CONSISTENT_HASH`, `FASTEST_RESPONSE`, `LEAST_LOAD`,
+                      `FEWEST_SERVERS`, `RANDOM`, `FEWEST_TASKS`,`CORE_AFFINITY`
+                    type: string
+                  associatedVirtualServiceIds:
+                    description: IDs of associated virtual services
+                    items:
+                      type: string
+                    type: array
+                  associatedVirtualServices:
+                    description: Names of associated virtual services
+                    items:
+                      type: string
+                    type: array
+                  caCertificateIds:
+                    description: A set of root certificate IDs to use when validating
+                      certificates presented by pool members
+                    items:
+                      type: string
+                    type: array
+                  cnCheckEnabled:
+                    description: Boolean flag if common name check of the certificate
+                      should be enabled
+                    type: boolean
+                  defaultPort:
+                    description: Default Port defines destination server port used
+                      by the traffic sent to the member (default 80)
+                    type: number
+                  description:
+                    description: Description of ALB Pool
+                    type: string
+                  domainNames:
+                    description: List of domain names which will be used to verify
+                      common names
+                    items:
+                      type: string
+                    type: array
+                  edgeGatewayId:
+                    description: Edge gateway ID in which ALB Pool should be created
+                    type: string
+                  enabled:
+                    description: Boolean value if ALB Pool is enabled or not (default
+                      true)
+                    type: boolean
+                  enabledMemberCount:
+                    description: Number of enabled members in the pool
+                    type: number
+                  gracefulTimeoutPeriod:
+                    description: Maximum time in minutes to gracefully disable pool
+                      member (default 1)
+                    type: number
+                  healthMessage:
+                    description: Health message
+                    type: string
+                  healthMonitor:
+                    items:
+                      properties:
+                        name:
+                          type: string
+                        systemDefined:
+                          type: boolean
+                        type:
+                          description: Type of health monitor. One of `HTTP`, `HTTPS`,
+                            `TCP`, `UDP`, `PING`
+                          type: string
+                      type: object
+                    type: array
+                  id:
+                    type: string
+                  member:
+                    description: ALB Pool Members
+                    items:
+                      properties:
+                        detailedHealthMessage:
+                          description: Detailed health message
+                          type: string
+                        enabled:
+                          description: Defines if pool member is accepts traffic (default
+                            'true')
+                          type: boolean
+                        healthStatus:
+                          description: Health status
+                          type: string
+                        ipAddress:
+                          description: IP address of pool member
+                          type: string
+                        markedDownBy:
+                          description: Marked down by provides a set of health monitors
+                            that marked the service down
+                          items:
+                            type: string
+                          type: array
+                        port:
+                          description: Member port
+                          type: number
+                        ratio:
+                          description: Ratio of selecting eligible servers in the
+                            pool
+                          type: number
+                      type: object
+                    type: array
+                  memberCount:
+                    description: Number of members in the pool
+                    type: number
+                  memberGroupId:
+                    description: ID of Firewall Group to use for Pool Membership (VCD
+                      10.4.1+)
+                    type: string
+                  name:
+                    description: Name of ALB Pool
+                    type: string
+                  org:
+                    description: The name of organization to use, optional if defined
+                      at provider level. Useful when connected as sysadmin working
+                      across different organizations
+                    type: string
+                  passiveMonitoringEnabled:
+                    description: Monitors if the traffic is accepted by node (default
+                      true)
+                    type: boolean
+                  persistenceProfile:
+                    items:
+                      properties:
+                        name:
+                          description: System generated name of persistence profile
+                          type: string
+                        type:
+                          description: Type of persistence strategy. One of `CLIENT_IP`,
+                            `HTTP_COOKIE`, `CUSTOM_HTTP_HEADER`, `APP_COOKIE`, `TLS`
+                          type: string
+                        value:
+                          description: Value of attribute based on persistence type
+                          type: string
+                      type: object
+                    type: array
+                  upMemberCount:
+                    description: Number of members in the pool serving the traffic
+                    type: number
+                  vdc:
+                    description: The name of VDC to use, optional if defined at provider
+                      level
+                    type: string
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
