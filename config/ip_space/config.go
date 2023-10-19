@@ -1,4 +1,4 @@
-package ipSpace
+package ipspace
 
 import "github.com/upbound/upjet/pkg/config"
 

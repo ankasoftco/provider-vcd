@@ -1,4 +1,4 @@
-package clonedvApp
+package clonedvapp
 
 import "github.com/upbound/upjet/pkg/config"
 

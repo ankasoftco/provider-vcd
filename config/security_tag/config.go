@@ -1,4 +1,4 @@
-package securityTag
+package securitytag
 
 import "github.com/upbound/upjet/pkg/config"
 

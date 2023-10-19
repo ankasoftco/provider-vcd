@@ -1,4 +1,4 @@
-package certificateLibrary
+package certificatelibrary
 
 import "github.com/upbound/upjet/pkg/config"
 

@@ -1,4 +1,4 @@
-package rightsBundle
+package rightsbundle
 
 import "github.com/upbound/upjet/pkg/config"
 

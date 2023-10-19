@@ -1,4 +1,4 @@
-package subscribedCatalog
+package subscribedcatalog
 
 import "github.com/upbound/upjet/pkg/config"
 

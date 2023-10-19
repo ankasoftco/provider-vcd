@@ -1,4 +1,4 @@
-package uiPlugin
+package uiplugin
 
 import "github.com/upbound/upjet/pkg/config"
 

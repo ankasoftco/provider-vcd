@@ -1,4 +1,4 @@
-package apiToken
+package apitoken
 
 import "github.com/upbound/upjet/pkg/config"
 

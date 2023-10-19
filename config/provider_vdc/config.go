@@ -1,4 +1,4 @@
-package providerVdc
+package providervdc
 
 import "github.com/upbound/upjet/pkg/config"
 

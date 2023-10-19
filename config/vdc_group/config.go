@@ -1,4 +1,4 @@
-package vdcGroup
+package vdcgroup
 
 import "github.com/upbound/upjet/pkg/config"
 

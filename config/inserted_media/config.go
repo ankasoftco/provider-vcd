@@ -1,4 +1,4 @@
-package insertedMedia
+package insertedmedia
 
 import "github.com/upbound/upjet/pkg/config"
 

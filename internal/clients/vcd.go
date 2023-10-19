@@ -28,11 +28,8 @@ const (
 )
 
 const (
-	keyUser          = "user"
+	keyUser     = "user"
 	keyPassword = "password"
-
-	envUser          = "VCD_USER"
-	envPassword = "VCD_PASSWORD"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which

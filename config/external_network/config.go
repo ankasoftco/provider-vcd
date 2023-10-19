@@ -1,4 +1,4 @@
-package externalNetwork
+package externalnetwork
 
 import "github.com/upbound/upjet/pkg/config"
 

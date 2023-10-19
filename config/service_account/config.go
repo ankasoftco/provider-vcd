@@ -1,4 +1,4 @@
-package serviceAccount
+package serviceaccount
 
 import "github.com/upbound/upjet/pkg/config"
 
