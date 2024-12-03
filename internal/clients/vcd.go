@@ -27,10 +27,8 @@ const (
 	errUnmarshalCredentials = "cannot unmarshal vcd credentials as JSON"
 )
 
-const (
-	keyUser     = "user"
-	keyPassword = "password"
-)
+var reqFields = []string{"user", "password", "auth_type", "org", "vdc", "url"}
+var optFields = []string{"allow_unverified_ssl"}
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
 // returns Terraform provider setup configuration
@@ -67,19 +65,16 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			return ps, errors.Wrap(err, errUnmarshalCredentials)
 		}
 
-		ps.Configuration = map[string]interface{}{}
-		if v, ok := creds[keyUser]; ok {
-			ps.Configuration[keyUser] = v
+		// Required fields
+		for _, req := range reqFields {
+			ps.Configuration[req] = creds[req]
 		}
-		if v, ok := creds[keyPassword]; ok {
-			ps.Configuration[keyPassword] = v
+		// Optional fields
+		for _, opt := range optFields {
+			if v, ok := creds[opt]; ok {
+				ps.Configuration[opt] = v
+			}
 		}
-
-		// Set credentials in Terraform provider configuration.
-		/*ps.Configuration = map[string]any{
-			"username": creds["username"],
-			"password": creds["password"],
-		}*/
 		return ps, nil
 	}
 }
